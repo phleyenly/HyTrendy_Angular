@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class DropdownComponent {
   isOpen: String = ""
+  
   openDropdown() {
     this.isOpen = "show"
   }
