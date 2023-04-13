@@ -9,13 +9,15 @@ import { FooterComponent } from './conponent/default-layout/client/footer/footer
 import { HomeComponent } from './view/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { DropdownComponent } from './conponent/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
