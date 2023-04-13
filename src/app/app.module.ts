@@ -10,6 +10,7 @@ import { HomeComponent } from './view/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DropdownComponent } from './conponent/dropdown/dropdown.component';
+import { ErrorComponent } from './view/error/error.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DropdownComponent } from './conponent/dropdown/dropdown.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    DropdownComponent
+    DropdownComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
