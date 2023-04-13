@@ -1,0 +1,12 @@
+<div class="dropdown h-100 w-100" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()"> 
+  <button class="btn btn-secondary dropdown-toggle w-100 h-100">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu" [ngClass]="isOpen">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+
+
