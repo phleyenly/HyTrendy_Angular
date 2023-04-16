@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DropdownComponent } from './conponent/dropdown/dropdown.component';
 import { ErrorComponent } from './view/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SliderComponent } from './conponent/slider/slider.component';
+import { HomeProductsComponent } from './conponent/home-products/home-products.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +22,17 @@ import { ErrorComponent } from './view/error/error.component';
     FooterComponent,
     HomeComponent,
     DropdownComponent,
-    ErrorComponent
+    ErrorComponent,
+    SliderComponent,
+    HomeProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

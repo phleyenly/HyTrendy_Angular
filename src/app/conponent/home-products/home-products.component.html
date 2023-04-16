@@ -1,0 +1,57 @@
+<!-- Popular Products -->
+<div class="fr-pop-wrap mt-5">
+
+    <h3 class="component-ttl"><span>Popular products</span></h3>
+
+    <ul class="fr-pop-tabs sections-show ">
+        <li><a data-frpoptab-num="1" data-frpoptab="#frpoptab-tab-1" href="#" class="active" >All Categories</a></li>
+    
+     <ul class="main-menu d-flex flex-row">
+        <li class="h-100 " *ngFor="let item of categories">
+            <app-dropdown [category]="item"></app-dropdown>
+        </li>
+    </ul> 
+     </ul>
+
+    <div class="fr-pop-tab-cont">
+
+        <p data-frpoptab-num="1" class="fr-pop-tab-mob active" data-frpoptab="#frpoptab-tab-1">All Categories</p>
+        <div class="carousel slide prod-items fr-pop-tab" id="frpoptab-tab-1" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="prod-i">
+                        <div class="prod-i-top">
+                            <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x350" alt="Aspernatur excepturi rem"><!-- NO SPACE --></a>
+                            <p class="prod-i-info">
+                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
+                                <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
+                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
+                            </p>
+                            <p class="prod-i-addwrap">
+                                <a href="#" class="prod-i-add">Go to detail</a>
+                            </p>
+                        </div>
+                        <h3>
+                            <a href="product.html">Aspernatur excepturi rem</a>
+                        </h3>
+                        <p class="prod-i-price">
+                            <b>$90</b>
+                        </p>
+                        <div class="prod-i-skuwrapcolor">
+                            <ul class="prod-i-skucolor">
+                                <li class="bx_active"><img src="img/color/red.jpg" alt="Red"></li>
+                                <li><img src="img/color/blue.jpg" alt="Blue"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div><!-- .fr-pop-tab-cont -->
+
+</div><!-- .fr-pop-wrap -->
