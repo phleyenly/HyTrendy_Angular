@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Category } from 'src/app/interface/category';
 import { CategoryService } from 'src/app/service/category.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-home-products',
+  templateUrl: './home-products.component.html',
+  styleUrls: ['./home-products.component.scss']
 })
-export class HeaderComponent  implements OnInit{
+export class HomeProductsComponent {
   categories: Category[]= [];
   constructor(private categoryService: CategoryService){}
 
@@ -21,4 +21,5 @@ export class HeaderComponent  implements OnInit{
     
   })
 }
+
 }

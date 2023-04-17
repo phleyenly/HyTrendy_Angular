@@ -482,9 +482,9 @@
                 <!-- Main menu - start -->
                 <button type="button" class="mainmenu-btn">Menu</button>
                 <ul class="main-menu d-flex flex-row">
-                    <li class="h-100"><app-dropdown></app-dropdown></li>
-                    <li class="h-100"><app-dropdown></app-dropdown></li>
-                    <li class="h-100"><app-dropdown></app-dropdown></li>   
+                    <li class="h-100" *ngFor="let item of categories">
+                        <app-dropdown [category]="item"></app-dropdown>
+                    </li>
                 </ul>
                 <!-- Main menu - end -->
                 <!-- Search - start -->
