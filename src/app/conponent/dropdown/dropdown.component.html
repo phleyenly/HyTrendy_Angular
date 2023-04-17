@@ -2,10 +2,10 @@
   <button class="btn btn-secondary dropdown-toggle w-100 h-100">
     {{category.name}}
   </button>
-  <ul class="dropdown-menu" [ngClass]="isOpen" >
-    <div *ngFor="let item of category.types ; index as i">
-    <li><a class="dropdown-item" href="#">{{ item.name }}</a></li>
-    <div class="dropdown-divider" *ngIf="i !== category.types.length - 1"></div>
+  <ul class="dropdown-menu" [ngClass]="isOpen">
+    <div *ngFor="let item of category.types ; index as i" class="d-flex flex-column">
+      <li><a class="dropdown-item" href="#">{{ item.name }}</a></li>
+      <div class="dropdown-divider" *ngIf="i !== category.types.length - 1"></div>
     </div>
   </ul>
 </div>
