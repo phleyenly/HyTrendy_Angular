@@ -32,7 +32,22 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/client/js/jquery-1.11.2.min.js",
+              "src/assets/client/js/jquery.bxslider.min.js",
+              "src/assets/client/js/fancybox/fancybox.js",
+              "src/assets/client/js/fancybox/helpers/jquery.fancybox-thumbs.js",
+              "src/assets/client/js/jquery.flexslider-min.js",
+              "src/assets/client/js/swiper.jquery.min.js",
+              "src/assets/client/js/jquery.waypoints.min.js",
+              "src/assets/client/js/progressbar.min.js",
+              "src/assets/client/js/ion.rangeSlider.min.js",
+              "src/assets/client/js/chosen.jquery.min.js",
+              "src/assets/client/js/jQuery.Brazzers-Carousel.js",
+              "src/assets/client/js/plugins.js",
+              "src/assets/client/js/main.js",
+              "src/assets/client/js/gmap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,7 +110,23 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/client/js/jquery-1.11.2.min.js",
+              "src/assets/client/js/jquery.bxslider.min.js",
+              "src/assets/client/js/fancybox/fancybox.js",
+              "src/assets/client/js/fancybox/helpers/jquery.fancybox-thumbs.js",
+              "src/assets/client/js/jquery.flexslider-min.js",
+              "src/assets/client/js/swiper.jquery.min.js",
+              "src/assets/client/js/jquery.waypoints.min.js",
+              "src/assets/client/js/progressbar.min.js",
+              "src/assets/client/js/ion.rangeSlider.min.js",
+              "src/assets/client/js/chosen.jquery.min.js",
+              "src/assets/client/js/jQuery.Brazzers-Carousel.js",
+              "src/assets/client/js/plugins.js",
+              "src/assets/client/js/main.js",
+              "src/assets/client/js/gmap.js"
+
+            ]
           }
         }
       }
