@@ -14,6 +14,7 @@ import { ErrorComponent } from './view/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './conponent/slider/slider.component';
 import { HomeProductsComponent } from './conponent/home-products/home-products.component';
+import { SlideProductComponent } from './conponent/home-products/component/slide-product/slide-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeProductsComponent } from './conponent/home-products/home-products.c
     DropdownComponent,
     ErrorComponent,
     SliderComponent,
-    HomeProductsComponent
+    HomeProductsComponent,
+    SlideProductComponent
   ],
   imports: [
     BrowserModule,
