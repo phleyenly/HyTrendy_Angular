@@ -14,6 +14,9 @@ import { ErrorComponent } from './view/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './conponent/slider/slider.component';
 import { HomeProductsComponent } from './conponent/home-products/home-products.component';
+import { SlideProductComponent } from './conponent/home-products/slide-product/slide-product.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { HomeProductsComponent } from './conponent/home-products/home-products.c
     DropdownComponent,
     ErrorComponent,
     SliderComponent,
-    HomeProductsComponent
+    HomeProductsComponent,
+    SlideProductComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { HomeProductsComponent } from './conponent/home-products/home-products.c
     NgbModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
