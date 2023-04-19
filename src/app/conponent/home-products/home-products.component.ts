@@ -34,13 +34,20 @@ export class HomeProductsComponent {
     })
   }
 
-  getByCategoryAndType( categoryCode : string , typeCode: string) : Product[] {
-    let productdetail: Product[] = [];
-    this.productService.getByCategoryAndType(categoryCode , typeCode).subscribe((p:any) =>{
-      productdetail = p;
-    })
-    return productdetail;
+  onChangeCategoryAndType($event : any) {
+    this.getByCategoryAndType($event.categoryCode , $event.typeCode)
+
+    setTimeout(() => {
+      console.log(this.products)
+      
+    }, 5000);
+
   }
 
-
+  getByCategoryAndType( categoryCode : string , typeCode: string)  {
+    this.productService.getByCategoryAndType(categoryCode , typeCode).subscribe((p:any) =>{
+      this.products = p;
+    })
+  }
+  
 }

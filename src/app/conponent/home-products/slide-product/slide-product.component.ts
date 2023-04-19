@@ -9,4 +9,5 @@ import { Product } from 'src/app/interface/product';
 export class SlideProductComponent {
   @Input("product") product: Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: []};
 
+  
 }

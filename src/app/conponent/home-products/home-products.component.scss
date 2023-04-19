@@ -1,0 +1,9 @@
+::ng-deep {
+    .carousel-control-next-icon , .carousel-control-prev-icon , .carousel-indicators [data-bs-target] {
+        background-color: black;
+    }
+
+    .carousel-indicators {
+        bottom: -20px;
+    }
+}
