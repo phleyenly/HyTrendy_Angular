@@ -4,9 +4,9 @@
     <h3 class="component-ttl"><span>Popular products</span></h3>
 
     <ul class="fr-pop-tabs sections-show">
-        <li><a class="active" (click)="getAllProduct()">All Categories</a></li>
+        <li><a (click)="getAllProduct()" [ngClass]="active.categoryCode === '' ? 'active' : ''">All Categories</a></li>
         <li *ngFor="let item of categories" class="h-100"> 
-            <app-dropdown [category]="item" (onChangeCategoryAndType)="onChangeCategoryAndType($event)"></app-dropdown>
+            <app-dropdown [category]="item" [active]="active" (onChangeCategoryAndType)="onChangeCategoryAndType($event)"></app-dropdown>
         </li> 
     </ul>
 

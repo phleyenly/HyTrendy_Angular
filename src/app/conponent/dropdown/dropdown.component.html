@@ -1,10 +1,18 @@
 <div class="dropdown h-100 w-100" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()"> 
-  <button class="btn btn-secondary dropdown-toggle w-100 h-100">
+  <a class="btn btn-light dropdown-toggle w-100 h-100" 
+  [ngClass]="active.categoryCode === category.code ? 'active'  : ''">
     {{category.name}}
-  </button>
+  </a>
   <ul class="dropdown-menu" [ngClass]="isOpen">
     <div *ngFor="let item of category.types ; index as i" class="d-flex flex-column">
-      <li class="active"><a class="dropdown-item"  (click)="onDropdownClick(category.code , item.code)">{{ item.name }}</a></li>
+      <li >
+        <a class="dropdown-item"  
+        (click)="onDropdownClick(category.code , item.code)"
+        [ngClass]="active.categoryCode === category.code && active.typeCode === item.code ? 'active'  : ''"
+        >
+        {{ item.name }}
+         </a>
+      </li>
       <div class="dropdown-divider" *ngIf="i !== category.types.length - 1"></div>
     </div>
   </ul>

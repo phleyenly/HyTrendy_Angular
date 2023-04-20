@@ -9,6 +9,11 @@ import { Category } from 'src/app/interface/category';
 export class DropdownComponent {
   @Input("category") category: Category = {id: 0, name: "", code: "" , types:[] };
   @Output () onChangeCategoryAndType = new EventEmitter<any>();
+  @Input("active") active: any = {
+    categoryCode: "",
+    typeCode: ""
+  }
+
 
   isOpen: String = ""
   
@@ -21,7 +26,12 @@ export class DropdownComponent {
   }
 
   onDropdownClick (categoryCode : string , typeCode: string){
-    this.onChangeCategoryAndType.emit({"categoryCode": categoryCode , "typeCode": typeCode} );
+    const data = {"categoryCode": categoryCode , "typeCode": typeCode}
+    this.onChangeCategoryAndType.emit(data );
+
+    this.active = data
+
+
 
   }
 }

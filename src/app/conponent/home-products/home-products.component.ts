@@ -10,6 +10,11 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./home-products.component.scss']
 })
 export class HomeProductsComponent {
+ active: any = {
+  categoryCode: "",
+  typeCode: ""
+ }
+
   categories: Category[]= [];
   products: Product[] =[];
   productdetail : Product[] =[];
@@ -32,15 +37,17 @@ export class HomeProductsComponent {
     this.productService.getAllProduct().subscribe((p:any) => {
       this.products = p;
     })
+
+    this.active = {
+      categoryCode: "",
+      typeCode: ""
+    }
   }
 
   onChangeCategoryAndType($event : any) {
     this.getByCategoryAndType($event.categoryCode , $event.typeCode)
 
-    setTimeout(() => {
-      console.log(this.products)
-      
-    }, 5000);
+    this.active = $event
 
   }
 
