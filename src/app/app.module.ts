@@ -16,6 +16,8 @@ import { SliderComponent } from './conponent/slider/slider.component';
 import { HomeProductsComponent } from './conponent/home-products/home-products.component';
 import { SlideProductComponent } from './conponent/home-products/slide-product/slide-product.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ProductsComponent } from './view/products/products.component';
+import { ProductCardComponent } from './conponent/product-card/product-card.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ErrorComponent,
     SliderComponent,
     HomeProductsComponent,
-    SlideProductComponent
+    SlideProductComponent,
+    ProductsComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
