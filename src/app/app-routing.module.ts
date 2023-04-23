@@ -9,8 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'products/:categoryCode/:typeCode', component: ProductsComponent },
-  { path: 'product-detail/:id', component: ProductDetailComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
 
   
 

@@ -13,8 +13,8 @@ export class ProductsComponent  implements OnInit{
  
   products: Product[] =[];
 
-   categoryCode = this.route.snapshot.paramMap.get('categoryCode') 
-   typeCode = this.route.snapshot.paramMap.get('typeCode')
+  categoryCode = this.route.snapshot.queryParamMap.get('categoryCode') 
+  typeCode = this.route.snapshot.queryParamMap.get('typeCode')
    
 
   constructor( 
@@ -23,14 +23,13 @@ export class ProductsComponent  implements OnInit{
     private route: ActivatedRoute){}
 
  ngOnInit(): void {
-  console.log(this.route.snapshot.queryParamMap.get("id"))
-    if(this.categoryCode == null && this.typeCode == null) {
-      this.getAllProduct()
-    } else {
-      const category = this.categoryCode || '';
+  if(this.categoryCode == null && this.typeCode == null) {
+    this.getAllProduct()
+  } else {
+    const category = this.categoryCode || '';
     const type = this.typeCode || '';
     this.getByCategoryAndType( category, type)
-   }
+  }
    
 
     setTimeout(() => {
