@@ -9,14 +9,12 @@
 					Home
 				</a>
 			</li>
-			<li>
+			<li *ngFor="let item of title">
 				<a href="catalog-list.html">
-					Catalog
+					{{item}}
 				</a>
 			</li>
-			<li>
-				<span>Women</span>
-			</li>
+			
 		</ul>
         <div class="d-flex justify-content-between">
 		<h1 class="main-ttl"><span>Women</span></h1>

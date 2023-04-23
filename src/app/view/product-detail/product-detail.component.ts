@@ -10,6 +10,11 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductDetailComponent implements OnInit {
   product : Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: ""};
+  tiltle1: string[] = ["Tất cả sản phẩm" , ""];
+  tiltle2: string[]= ["Tất cả sản phẩm" , "Thời Trang Nam"];
+  tiltle3: string[]= ["Tất cả sản phẩm" , "Thời Trang Nữ"];
+  tiltle: string[] = ["", ""];
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -29,6 +34,7 @@ export class ProductDetailComponent implements OnInit {
   getById( id: number) {
     this.productService.getById(id).subscribe((p: Product)=>{
       this.product = p;
+      this.tiltle = this.tiltle1;
     })
   }
 

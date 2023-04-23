@@ -9,10 +9,14 @@ const baseUrl = "http://localhost:8080/api/category";
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getAllCategory(): Observable<Category[]>{
+  getAllCategory(): Observable<Category[]> {
     return this.http.get<Category[]>(baseUrl)
+  }
+
+  getCategoryByCode(categoryCode: string): Observable<Category> {
+    return this.http.get<Category>(`${baseUrl}/${categoryCode}`)
   }
 
 }
