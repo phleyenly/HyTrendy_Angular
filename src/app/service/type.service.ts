@@ -13,8 +13,8 @@ export class TypeService {
 
   constructor(private http: HttpClient) {}
 
-  getTypeByCode(categoryCode: string, typeCode: string): Observable<ArrayBuffer> {
-    return this.http.get<ArrayBuffer>(`${baseUrl}/${categoryCode}/${typeCode}`, { responseType: 'text' as 'json' });
+  getTypeByCode(categoryCode: string, typeCode: string): Observable<string> {
+    return this.http.get<string>(`${baseUrl}/${categoryCode}/${typeCode}`, { responseType: 'text' as 'json' });
   }
   
 }

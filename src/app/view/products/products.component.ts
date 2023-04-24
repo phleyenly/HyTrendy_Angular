@@ -61,6 +61,6 @@ export class ProductsComponent implements OnInit {
   }
 
   async getTypeByCode(categoryCode: string, typeCode: string) {
-    this.types = await this.typeService.getTypeByCode(categoryCode, typeCode).toPromise() as unknown as string;
+    this.types = await this.typeService.getTypeByCode(categoryCode, typeCode).toPromise();
   }
 }
