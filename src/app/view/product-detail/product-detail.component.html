@@ -8,16 +8,12 @@
 					Home
 				</a>
 			</li>
-			<li>
+			<li *ngFor="let item of title">
 				<a href="catalog-list.html">
-					{{tiltle[0]}}
+					{{item}}
 				</a>
 			</li>
-			<li>
-				<a href="catalog-list.html">
-					{{tiltle[1]}}
-				</a>
-			</li>
+			
 			<li>
 				<span>{{product.name}}</span>
 			</li>
