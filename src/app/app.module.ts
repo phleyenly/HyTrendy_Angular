@@ -19,6 +19,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ProductsComponent } from './view/products/products.component';
 import { ProductCardComponent } from './conponent/product-card/product-card.component';
 import { ProductDetailComponent } from './view/product-detail/product-detail.component';
+import { CartComponent } from './view/cart/cart.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ProductDetailComponent } from './view/product-detail/product-detail.com
     SlideProductComponent,
     ProductsComponent,
     ProductCardComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
