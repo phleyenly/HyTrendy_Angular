@@ -20,6 +20,7 @@ import { ProductsComponent } from './view/products/products.component';
 import { ProductCardComponent } from './conponent/product-card/product-card.component';
 import { ProductDetailComponent } from './view/product-detail/product-detail.component';
 import { CartComponent } from './view/cart/cart.component';
+import { LoginComponent } from './view/login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CartComponent } from './view/cart/cart.component';
     ProductsComponent,
     ProductCardComponent,
     ProductDetailComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
