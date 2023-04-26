@@ -5,6 +5,7 @@ import { ErrorComponent } from './view/error/error.component';
 import { ProductsComponent } from './view/products/products.component';
 import { ProductDetailComponent } from './view/product-detail/product-detail.component';
 import { CartComponent } from './view/cart/cart.component';
+import { LoginComponent } from './view/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'login', component: LoginComponent },
 
   
 
