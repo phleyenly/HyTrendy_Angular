@@ -46,7 +46,13 @@
               "src/assets/client/js/jQuery.Brazzers-Carousel.js",
               "src/assets/client/js/plugins.js",
               "src/assets/client/js/main.js",
-              "src/assets/client/js/gmap.js"
+              "src/assets/client/js/gmap.js",
+              "src/assets/admin/js/datatables-simple-demo.js",
+              "src/assets/admin/js/scripts.js",
+
+              "src/assets/admin/demo/chart-area-demo.js",
+              "src/assets/admin/demo/chart-bar-demo.js"
+
             ]
           },
           "configurations": {
@@ -124,7 +130,12 @@
               "src/assets/client/js/jQuery.Brazzers-Carousel.js",
               "src/assets/client/js/plugins.js",
               "src/assets/client/js/main.js",
-              "src/assets/client/js/gmap.js"
+              "src/assets/client/js/gmap.js",
+              "src/assets/admin/js/datatables-simple-demo.js",
+              "src/assets/admin/js/scripts.js",
+
+              "src/assets/admin/demo/chart-area-demo.js",
+              "src/assets/admin/demo/chart-bar-demo.js"
 
             ]
           }

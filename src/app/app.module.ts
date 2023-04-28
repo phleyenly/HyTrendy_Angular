@@ -21,6 +21,7 @@ import { ProductCardComponent } from './conponent/product-card/product-card.comp
 import { ProductDetailComponent } from './view/product-detail/product-detail.component';
 import { CartComponent } from './view/cart/cart.component';
 import { LoginComponent } from './view/login/login.component';
+import { AdminHomeComponent } from './view/admin/admin-home/admin-home.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LoginComponent } from './view/login/login.component';
     ProductCardComponent,
     ProductDetailComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
