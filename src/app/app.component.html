@@ -1,6 +1,20 @@
 
-<app-header></app-header>
+<app-header *ngIf="!isAdminPage"></app-header>
 
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!isAdminPage"></router-outlet>
+ 
 
 <!-- <app-footer></app-footer> -->
+
+<body class="sb-nav-fixed" *ngIf="isAdminPage">
+    <app-header-admin></app-header-admin>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <app-sidebar ></app-sidebar>
+        </div>
+        <div id="layoutSidenav_content">
+            <router-outlet></router-outlet>
+            <app-footer-admin ></app-footer-admin>
+        </div>
+    </div>
+</body>
