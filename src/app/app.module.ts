@@ -26,6 +26,7 @@ import { DropdownAdminComponent } from './conponent/dropdown-admin/dropdown-admi
 import { FooterAdminComponent } from './conponent/default-layout/admin/footer-admin/footer-admin.component';
 import { HeaderAdminComponent } from './conponent/default-layout/admin/header-admin/header-admin.component';
 import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sidebar.component';
+import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdown-category.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sideb
     DropdownAdminComponent,
     FooterAdminComponent,
     HeaderAdminComponent,
-    SidebarComponent
+    SidebarComponent,
+    DropdownCategoryComponent
   ],
   imports: [
     BrowserModule,

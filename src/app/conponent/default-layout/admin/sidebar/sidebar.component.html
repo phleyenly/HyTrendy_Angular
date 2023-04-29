@@ -11,10 +11,19 @@
                 <div class="sb-sidenav-menu-heading">Interface</div>
                 
                 <!-- dropdonw -->
-                <app-dropdown-admin [content]="contentRole"></app-dropdown-admin>
+                <app-dropdown-admin [content]="contentRole" class="margin-space"></app-dropdown-admin>  
         
                 <!-- dropdonw -->
 
+                <button type="button" class="btn btn-outline-primary button1 margin-space" >
+                    Tất Cả Sản Phẩm
+                </button>
+
+                <li *ngFor="let item of categories" class="margin-space"> 
+                    <app-dropdown-category [category]="item"></app-dropdown-category>
+                </li> 
+
+                
                 <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="charts.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
