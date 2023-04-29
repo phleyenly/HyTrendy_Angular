@@ -1,0 +1,40 @@
+<main class="container">
+<table class="table table-bordered  ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Hình Ảnh</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Tồn Kho</th>
+        <th scope="col">Size</th>
+        <th scope="col">Phong Cách</th>
+        <th scope="col">Xuất Xứ</th>
+        <th scope="col">Mô Tả</th>
+        <th scope="col">Chất Liệu</th>
+        <th scope="col">Tác Vụ</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of products">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td><img  alt="" src="{{item.image[0]}}"></td>
+        <td>{{item.price}}</td>
+        <td>{{item.stock}}</td>
+        <td>{{item.size}}</td>
+        <td>{{item.tags}}</td>
+        <td>{{item.origin}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.material}}</td>
+        <td>
+          <span ><a href="#"><i
+              class="fa fa-pencil"></i> Sửa</a><br/> </span> 
+          <span > <i class="fa fa-trash"></i> Xóa</span>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</main>
