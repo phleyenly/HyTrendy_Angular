@@ -22,6 +22,10 @@ import { ProductDetailComponent } from './view/product-detail/product-detail.com
 import { CartComponent } from './view/cart/cart.component';
 import { LoginComponent } from './view/login/login.component';
 import { AdminHomeComponent } from './view/admin/admin-home/admin-home.component';
+import { DropdownAdminComponent } from './conponent/dropdown-admin/dropdown-admin.component';
+import { FooterAdminComponent } from './conponent/default-layout/admin/footer-admin/footer-admin.component';
+import { HeaderAdminComponent } from './conponent/default-layout/admin/header-admin/header-admin.component';
+import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -40,7 +44,11 @@ import { AdminHomeComponent } from './view/admin/admin-home/admin-home.component
     ProductDetailComponent,
     CartComponent,
     LoginComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    DropdownAdminComponent,
+    FooterAdminComponent,
+    HeaderAdminComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -51,7 +51,9 @@
               "src/assets/admin/js/scripts.js",
 
               "src/assets/admin/demo/chart-area-demo.js",
-              "src/assets/admin/demo/chart-bar-demo.js"
+              "src/assets/admin/demo/chart-bar-demo.js",
+              "src/assets/admin/demo/chart-pie-demo.js",
+              "src/assets/admin/demo/chart-datatables-demo.js"
 
             ]
           },
@@ -135,7 +137,9 @@
               "src/assets/admin/js/scripts.js",
 
               "src/assets/admin/demo/chart-area-demo.js",
-              "src/assets/admin/demo/chart-bar-demo.js"
+              "src/assets/admin/demo/chart-bar-demo.js",
+              "src/assets/admin/demo/chart-pie-demo.js",
+              "src/assets/admin/demo/chart-datatables-demo.js"
 
             ]
           }
