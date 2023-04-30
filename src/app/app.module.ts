@@ -28,6 +28,7 @@ import { HeaderAdminComponent } from './conponent/default-layout/admin/header-ad
 import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sidebar.component';
 import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdown-category.component';
 import { AdminProductComponent } from './view/admin/admin-product/admin-product.component';
+import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AdminProductComponent } from './view/admin/admin-product/admin-product.
     HeaderAdminComponent,
     SidebarComponent,
     DropdownCategoryComponent,
-    AdminProductComponent
+    AdminProductComponent,
+    AdminEditComponent
   ],
   imports: [
     BrowserModule,
