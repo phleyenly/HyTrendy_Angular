@@ -23,4 +23,9 @@ export class ProductService {
   getById (id: number) : Observable<Product> {
     return this.http.get<Product>(`${baseUrl}/${id}`)
   }
+
+  updatedById (id: number , product: Product) : Observable<string> {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.put<string>(`${baseUrl}/${id}`, JSON.stringify(product), { headers } )
+  }
 }

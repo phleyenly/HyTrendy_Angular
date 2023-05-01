@@ -27,6 +27,9 @@ import { FooterAdminComponent } from './conponent/default-layout/admin/footer-ad
 import { HeaderAdminComponent } from './conponent/default-layout/admin/header-admin/header-admin.component';
 import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sidebar.component';
 import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdown-category.component';
+import { AdminProductComponent } from './view/admin/admin-product/admin-product.component';
+import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdow
     FooterAdminComponent,
     HeaderAdminComponent,
     SidebarComponent,
-    DropdownCategoryComponent
+    DropdownCategoryComponent,
+    AdminProductComponent,
+    AdminEditComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdow
     BsDropdownModule.forRoot(),
     HttpClientModule,
     CarouselModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
