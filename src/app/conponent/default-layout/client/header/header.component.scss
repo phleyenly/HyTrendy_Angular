@@ -10,3 +10,28 @@
     border: 1px solid #0a478444;
     height: 43.2px
 }
+/* Style for the ng-select dropdown */
+.ng-dropdown-panel {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  /* Style for the selected items */
+  .ng-value {
+    background-color: #eee;
+    border-radius: 4px;
+    color: #333;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 2px 5px;
+  }
+  
+  /* Style for the remove icon on selected items */
+  .ng-value-icon {
+    cursor: pointer;
+    margin-left: 5px;
+  }

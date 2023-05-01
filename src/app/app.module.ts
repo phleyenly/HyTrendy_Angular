@@ -30,6 +30,8 @@ import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdow
 import { AdminProductComponent } from './view/admin/admin-product/admin-product.component';
 import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
 import { FormsModule } from '@angular/forms';
+import { MultiSelectComponent } from './conponent/multi-select/multi-select.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     DropdownCategoryComponent,
     AdminProductComponent,
-    AdminEditComponent
+    AdminEditComponent,
+    MultiSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     CarouselModule.forRoot(),
     FormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
