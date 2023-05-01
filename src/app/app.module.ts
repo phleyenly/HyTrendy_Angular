@@ -29,6 +29,7 @@ import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sideb
 import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdown-category.component';
 import { AdminProductComponent } from './view/admin/admin-product/admin-product.component';
 import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component
     BsDropdownModule.forRoot(),
     HttpClientModule,
     CarouselModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

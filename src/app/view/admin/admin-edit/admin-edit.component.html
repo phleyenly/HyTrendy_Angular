@@ -6,104 +6,105 @@
 		<li class="breadcrumb-item"> Chỉnh Sửa Sản Phẩm</li>
 	</ol>
     <div class="container-fluid px-4">
+        <!-- <form> -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="mb-3 row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="idModel">ID</label> <input type="text"
+                                    class="form-control" id="idModel" value="{{id}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="title">Tên Sản Phẩm</label> <input type="text"
+                                    class="form-control" id="nameproduct" name="name"
+                                    [(ngModel)]="product.name">
+                            </div>
+                        </div>
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="mb-3 row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="idModel">ID</label> <input type="text"
-                                class="form-control" id="idModel" value="{{product.id}}" disabled>
+                        
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="thumbnail">Kho</label> <input type="text"
+                                    class="form-control" id="stock" name="stock"
+                                   [(ngModel)]="product.stock" value="{{product.stock}}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="thumbnail">Size</label> <input type="text"
+                                    class="form-control" id="size" name="size"
+                                    value="{{product.size}}" [(ngModel)]="product.size">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="title">Giá Tiền</label> <input type="text"
+                                    class="form-control" id="price" name="price"
+                                    value="{{product.price}}" [(ngModel)]="product.price">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="form-group">
-                            <label for="title">Tên Sản Phẩm</label> <input type="text"
-                                class="form-control" id="nameproduct" name="nameproduct"
-                                value="{{product.name}}">
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="thumbnail">Chất Liệu</label> <input type="text"
+                                    class="form-control" id="material" name="material"
+                                    value="{{product.material}}" [(ngModel)]="product.material">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="shortdescripsion">Xuất Xứ</label> <input
+                                    type="text" class="form-control" id="origin"
+                                    name="origin" value="{{product.origin}}" [(ngModel)]="product.origin">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="shortdescripsion">Phong Cách</label> <input
+                                    type="text" class="form-control" id="tags"
+                                    name="tags" value="{{product.tags}}" [(ngModel)]="product.tags">
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="content">Mô Tả</label>
+                                <textarea rows="7" class="form-control " id="description"
+                                    name="description" [(ngModel)]="product.description">{{product.description}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="content">Hình Ảnh</label>
+                                <textarea rows="7" class="form-control " id="image"
+                                    name="image" [(ngModel)]="product.image">{{product.image}}</textarea>
+                            </div>
                         </div>
                     </div>
-
+                    
+                    
+                    
+                    <button id="edit" class="btn btn-success waves-effect waves-light "
+                    (click)="updateProduct()">
+                        <i class="ri-save-fill "></i> Xác Nhận
+                    </button>
+                    
+                    
                     
                 </div>
-                <div class="mb-3 row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="thumbnail">Kho</label> <input type="text"
-                                class="form-control" id="stock" name="stock"
-                                value="{{product.stock}}">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="thumbnail">Size</label> <input type="text"
-                                class="form-control" id="size" name="size"
-                                value="{{product.size}}">
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="title">Giá Tiền</label> <input type="text"
-                                class="form-control" id="price" name="price"
-                                value="{{product.price}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="thumbnail">Chất Liệu</label> <input type="text"
-                                class="form-control" id="material" name="material"
-                                value="{{product.material}}">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="shortdescripsion">Xuất Xứ</label> <input
-                                type="text" class="form-control" id="origin"
-                                name="origin" value="{{product.origin}}">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="shortdescripsion">Phong Cách</label> <input
-                                type="text" class="form-control" id="tags"
-                                name="tags" value="{{product.tags}}">
-                        </div>
-                    </div>
-                   
-                </div>
-                <div class="mb-3 row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="content">Mô Tả</label>
-                            <textarea rows="7" class="form-control " id="description"
-                                name="description">{{product.description}}</textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="content">Hình Ảnh</label>
-                            <textarea rows="7" class="form-control " id="image"
-                                name="image">{{product.image}}</textarea>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                
-                <button id="edit" class="btn btn-success waves-effect waves-light "
-                    onclick="editNews()">
-                    <i class="ri-save-fill "></i> Xác Nhận
-                </button>
-                
-                
-                
             </div>
-        </div>
+        <!-- </form> -->
     </div>
 </main>
