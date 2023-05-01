@@ -40,7 +40,7 @@
                                 <!-- <input type="text"
                                     id="size" name="size"
                                     value="{{product.size}}" [(ngModel)]="product.size"> -->
-                                    <app-multi-select [optionItems]="[{id: 1, name: 'X'},{id: 1, name: 'M'},{id: 1, name: 'S'}]" ></app-multi-select>
+                                    <app-multi-select [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)"></app-multi-select>
                             </div>
                         </div>
                         

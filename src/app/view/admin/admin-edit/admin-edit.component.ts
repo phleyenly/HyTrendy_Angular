@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./admin-edit.component.scss']
 })
 export class AdminEditComponent implements OnInit {
+  size: string[] = ['S','M','L', 'XL', 'XXL']
   product : Product = {id:-1 , name : "", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: ""};
   id = this.route.snapshot.paramMap.get("id") || '';
  
@@ -38,6 +39,11 @@ export class AdminEditComponent implements OnInit {
     // this.productService.updatedById(idNumber, this.product).subscribe((m: string) =>{
     //   console.log(m);
     // })
+  }
+
+  onchangeMultiSelect($event: any) {
+    console.log($event)
+    this.product.size = $event
   }
 
 }

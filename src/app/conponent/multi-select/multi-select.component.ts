@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-multi-select',
@@ -6,7 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./multi-select.component.scss']
 })
 export class MultiSelectComponent {
-  @Input() optionItems: any[] = []
+  @Input() optionItems: string[] = []
+  @Output() onChangeSelect = new EventEmitter<any>()
   selectedValues: any;
 
   onChange(event: any[]) {
@@ -18,18 +19,17 @@ export class MultiSelectComponent {
       const newList = selectedItems.map((x) => x.id);
       this.selectedValues = [...newList]
       this.onChange([...newList]);
+      this.onChangeSelect.emit(selectedItems);
     }
   }
 
   onTouched() {}
 
-  private selectAllItems() {
-    const newList = this.optionItems.map((x) => x.id);
-    this.selectedValues = [...newList];
-    this.onChange([...newList]);
+  selectAllItems() {
   }
 
   toggleCheckAll(values: any) {
+    // console.log(values)
     if (values.currentTarget.checked) {
       this.selectAllItems();
     } else {
@@ -37,7 +37,7 @@ export class MultiSelectComponent {
     }
   }
 
-  private unselectAllItems() {
+  unselectAllItems() {
     this.selectedValues = [];
     this.onChange([]);
   }
