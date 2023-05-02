@@ -34,10 +34,10 @@ export class AdminEditComponent implements OnInit {
 
   updateProduct() {
     const idNumber = parseInt(this.id);
-    console.log(this.product)
-    // this.productService.updatedById(idNumber, this.product).subscribe((m: string) =>{
-    //   console.log(m);
-    // })
+    // console.log(this.product)
+    this.productService.updatedById(idNumber, this.product).subscribe((m: any) =>{
+      alert(m.message);
+    })
   }
 
 }
