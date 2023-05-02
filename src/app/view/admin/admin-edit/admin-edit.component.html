@@ -36,9 +36,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="thumbnail">Size</label> <input type="text"
-                                    class="form-control" id="size" name="size"
-                                    value="{{product.size}}" [(ngModel)]="product.size">
+                                <label for="thumbnail">Size</label> 
+                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)"> </app-select-muti-module>
                             </div>
                         </div>
                         

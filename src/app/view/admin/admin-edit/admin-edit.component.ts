@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/service/product.service';
 export class AdminEditComponent implements OnInit {
   product : Product = {id:-1 , name : "", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: ""};
   id = this.route.snapshot.paramMap.get("id") || '';
+  size: string[] = ["S", "M", "L", "XL", "XXL"];
  
 
   constructor(
@@ -38,6 +39,10 @@ export class AdminEditComponent implements OnInit {
     this.productService.updatedById(idNumber, this.product).subscribe((m: any) =>{
       alert(m.message);
     })
+  }
+
+  onchangeMultiSelect($event: any) {
+    this.product.size = $event
   }
 
 }
