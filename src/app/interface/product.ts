@@ -9,4 +9,6 @@ export interface Product {
     description: string;
     image: string[];
     material: string;
+    categoryId: number;
+    typeId: number;
 }

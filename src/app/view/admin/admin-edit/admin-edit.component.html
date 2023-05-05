@@ -37,7 +37,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="thumbnail">Size</label> 
-                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)"> </app-select-muti-module>
+                                <app-select-muti-module [optionItems]="size" [multiple]="true" (onChangeSelect)="onchangeMultiSelectSize($event)"> </app-select-muti-module>
                             </div>
                         </div>
                         
@@ -74,6 +74,36 @@
                             </div>
                         </div>
                     
+                    </div>
+
+                    <!-- thêm cái category và type -->
+                    <!-- <div class="mb-3 row">
+                        <div class="col-md-4">
+							<div class="form-group">
+								<label for="categoryId">Thể Loại</label> 
+                                <select
+									class="form-control" id="categoryId" name="categoryId">
+									<option>Chọn thể loại</option>
+										<option  value="aaaa"  *ngFor="let item of categories">{{item.name}} </option>
+								</select>
+							</div>
+						</div>
+                    </div> -->
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Thể loại</label><br/>
+                                <app-select-muti-module [multiple]="false" [optionItems]="categoriesSelectItem" (onChangeSelect)="onchangeSelectCategory($event)"></app-select-muti-module>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Loại</label><br/>
+                                <app-select-muti-module [multiple]="false" [optionItems]="typesSelectItem" (onChangeSelect)="onchangeMultiSelectType($event)"></app-select-muti-module>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">

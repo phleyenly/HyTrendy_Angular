@@ -12,7 +12,7 @@ import { TypeService } from 'src/app/service/type.service';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product : Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: ""};
+  product : Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: "", categoryId: -1, typeId: -1};
   title: string[] = [];
   category: Category = {id: 0, name: '', code:'', types:[]};
   types: string = "";

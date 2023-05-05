@@ -7,6 +7,6 @@ import { Product } from 'src/app/interface/product';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
-  @Input("product") product: Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: ""};
+  @Input("product") product: Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: "", categoryId: -1, typeId: -1};
 
 }

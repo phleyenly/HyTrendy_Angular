@@ -1,6 +1,6 @@
 <ng-select 
     #combo
-    [multiple]="true" 
+    [multiple]="multiple" 
     [items]="optionItems"
     [closeOnSelect]="false"
     (change)="onSelectionChange($event)"
@@ -15,7 +15,7 @@
 
 		<ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
 			<div class="ng-value" *ngFor="let item of items">
-				<span class="ng-value-label">{{item}}</span>
+				<span class="ng-value-label">{{item.name}}</span>
 				<span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
 			</div>
 			<div class="ng-value" *ngIf="items.length > 2">
@@ -24,6 +24,6 @@
 		</ng-template>
 
 		<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-			<input id="item-{{index}}" type="checkbox" [checked]="item$.selected" /> {{item}}
+			<input id="item-{{index}}" type="checkbox" [checked]="item$.selected" /> {{item.name}}
     </ng-template>
 </ng-select>
