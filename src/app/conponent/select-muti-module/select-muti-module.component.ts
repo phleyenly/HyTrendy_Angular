@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SelectItem } from 'src/app/interface/select-item';
 
 @Component({
   selector: 'app-select-muti-module',
@@ -6,21 +7,25 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./select-muti-module.component.scss']
 })
 export class SelectMutiModuleComponent {
-  @Input() optionItems: string[] = [];
+  @Input() optionItems: SelectItem[] = [
+    {id: -1, name: ''}
+  ];
+  @Input() multipe: boolean = true;
   @Output() onChangeSelect = new EventEmitter<any>();
   selectedValues: any;
 
   onChange(event: any[]) {
   }
 
-  onSelectionChange(selectedItems: any[]) {
+  onSelectionChange(selectedItems: any) {
     // debugger;
     if (Array.isArray(selectedItems)) {
       const newList = selectedItems.map((x) => x.id);
       this.selectedValues = [...newList]
       this.onChange([...newList]);
-      this.onChangeSelect.emit(selectedItems)
+      
     }
+    this.onChangeSelect.emit(selectedItems)
   }
 
   onTouched() {}

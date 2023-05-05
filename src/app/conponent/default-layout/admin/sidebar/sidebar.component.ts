@@ -23,17 +23,6 @@ export class SidebarComponent implements OnInit{
     this.contentRole.selectItem = this.role;
 
     this.getAllCategory();
-    
-    
-
-
-    setTimeout(() => {
-      console.log(this.role);
-      console.log(this.contentRole);
-      console.log(this.categories);
-
-      
-    }, 5000);
       
     }
 

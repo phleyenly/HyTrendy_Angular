@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { async } from 'rxjs';
+import { Category } from 'src/app/interface/category';
 import { Product } from 'src/app/interface/product';
+import { SelectItem } from 'src/app/interface/select-item';
+import { CategoryService } from 'src/app/service/category.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -9,22 +13,36 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./admin-edit.component.scss']
 })
 export class AdminEditComponent implements OnInit {
-  product : Product = {id:-1 , name : "", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: ""};
+  product : Product = {id:-1 , name : "", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: "" , categoryId: -1, typeId: -1};
   id = this.route.snapshot.paramMap.get("id") || '';
-  size: string[] = ["S", "M", "L", "XL", "XXL"];
+  size: SelectItem[] = [
+    {id: 1 , name: "S" },
+    {id: 2 , name: "M" },
+    {id: 3 , name: "L" },
+    {id: 4 , name: "XL" },
+    {id: 5 , name: "XXL" },
+  ];
+  categories: Category[]= [];
+  categorySelect: SelectItem[] = [];
+  typeSelect: SelectItem[] = []
+  
  
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
+    private categoryService: CategoryService
   ){}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     const idNumber = parseInt(this.id);
     this.getById(idNumber);
-    setTimeout(() => {
-      console.log(this.product)
-    }, 5000);
+    await this.getAllCategory()
+    this.categorySelect = this.categories.map((item: Category) => {
+      return {id: item.id, name: item.name}
+    })
+    console.log(this.product)
+   
   }
 
   getById (id: number) {
@@ -42,7 +60,27 @@ export class AdminEditComponent implements OnInit {
   }
 
   onchangeMultiSelect($event: any) {
-    this.product.size = $event
+    if(Array.isArray($event)) {
+      const size = $event.map((item: SelectItem) => item.name)
+      this.product.size = size
+    }
+  }
+
+  onchangeCategorySelect($event: any) {
+  this.product.categoryId = $event.id;
+  const category = this.categories.find((category)=> category.id === $event.id);
+  if(category) {
+    this.typeSelect = category.types.map(({id, name}) => ({id, name}));
+  }
+   
+  }
+
+  onchageTypeSelect($event: any) {
+    this.product.typeId = $event.id
+  }
+
+  async getAllCategory() {
+   this.categories = await this.categoryService.getAllCategory().toPromise()
   }
 
 }

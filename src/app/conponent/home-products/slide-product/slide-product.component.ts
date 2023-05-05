@@ -7,7 +7,7 @@ import { Product } from 'src/app/interface/product';
   styleUrls: ['./slide-product.component.scss']
 })
 export class SlideProductComponent {
-  @Input("product") product: Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [], material: ""};
+  @Input("product") product: Product = {id:-1 , name : " ", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [], material: "", categoryId: -1, typeId: -1};
 
   
 }

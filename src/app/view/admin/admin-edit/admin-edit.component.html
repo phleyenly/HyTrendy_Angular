@@ -13,7 +13,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="idModel">ID</label> <input type="text"
-                                    class="form-control" id="idModel" value="{{id}}" disabled>
+                                    class="form-control" id="idModel" value="{{product.id}}" disabled>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -37,7 +37,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="thumbnail">Size</label> 
-                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)"> </app-select-muti-module>
+                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)" [multipe]="true"> </app-select-muti-module>
                             </div>
                         </div>
                         
@@ -73,8 +73,29 @@
                                     name="tags" value="{{product.tags}}" [(ngModel)]="product.tags">
                             </div>
                         </div>
-                    
+
+                        
                     </div>
+                <!-- theem cai cate va type -->
+                <div class="mb-3 row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="thumbnail">Thể Loại</label> 
+                            <app-select-muti-module [multipe]="false" [optionItems]="categorySelect" (onChangeSelect)="onchangeCategorySelect($event)"></app-select-muti-module>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="thumbnail">Loại</label> 
+                            <app-select-muti-module [multipe]="false" [optionItems]="typeSelect" (onChangeSelect)="onchageTypeSelect($event)"></app-select-muti-module>
+                        </div>
+                    </div>
+                    
+
+                    
+                </div>
+
                     <div class="mb-3 row">
                         <div class="col-md-6">
                             <div class="form-group">
