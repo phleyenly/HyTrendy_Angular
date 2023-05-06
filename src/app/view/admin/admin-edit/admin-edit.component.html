@@ -37,7 +37,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="thumbnail">Size</label> 
-                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)" [multipe]="true"> </app-select-muti-module>
+                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)" [multipe]="true" [selectedValues]="SizeProduct"> </app-select-muti-module>
                             </div>
                         </div>
                         
@@ -81,14 +81,14 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="thumbnail">Thể Loại</label> 
-                            <app-select-muti-module [multipe]="false" [optionItems]="categorySelect" (onChangeSelect)="onchangeCategorySelect($event)"></app-select-muti-module>
+                            <app-select-muti-module [multipe]="false" [optionItems]="categorySelect" (onChangeSelect)="onchangeCategorySelect($event)" [selectedValues]="'Thời Trang Nam'"></app-select-muti-module>
                         </div>
                     </div>
                     
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="thumbnail">Loại</label> 
-                            <app-select-muti-module [multipe]="false" [optionItems]="typeSelect" (onChangeSelect)="onchageTypeSelect($event)"></app-select-muti-module>
+                            <app-select-muti-module [multipe]="false" [optionItems]="typeSelect" (onChangeSelect)="onchageTypeSelect($event)" ></app-select-muti-module>
                         </div>
                     </div>
                     

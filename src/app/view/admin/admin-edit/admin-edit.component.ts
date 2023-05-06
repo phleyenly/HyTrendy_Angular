@@ -24,7 +24,8 @@ export class AdminEditComponent implements OnInit {
   ];
   categories: Category[]= [];
   categorySelect: SelectItem[] = [];
-  typeSelect: SelectItem[] = []
+  typeSelect: SelectItem[] = [];
+  SizeProduct: number[] = [];
   
  
 
@@ -36,19 +37,33 @@ export class AdminEditComponent implements OnInit {
 
   async ngOnInit() {
     const idNumber = parseInt(this.id);
-    this.getById(idNumber);
+   await this.getById(idNumber);
     await this.getAllCategory()
     this.categorySelect = this.categories.map((item: Category) => {
       return {id: item.id, name: item.name}
     })
-    console.log(this.product)
    
+    // for (let index = 0; index < this.size.length; index++) {
+    //   for (let i = 0; i < this.product.size.length; i++) {
+    //     if(this.size[index].name === this.product.size[i]) {
+    //       this.SizeProduct.push(index +1)
+    //     }
+        
+    //   }
+      
+    // }
+    this.SizeProduct = this.product.size.map(size => {
+      return this.size.findIndex(s => s.name === size ) +1 
+    })
+
+    // setTimeout(() => {
+    //   console.log(this.SizeProduct)
+    //   this.SizeProduct = [1, 2]
+    // }, 5000);
   }
 
-  getById (id: number) {
-    this.productService.getById(id).subscribe((p: Product) => {
-      this.product = p;
-    })
+  async getById (id: number) {
+   this.product = await this.productService.getById(id).toPromise()
   }
 
   updateProduct() {

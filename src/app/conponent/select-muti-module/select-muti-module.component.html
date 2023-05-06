@@ -7,7 +7,9 @@
     placeholder="Select people"
     (blur)="onTouched()"
     bindLabel="name"
-    bindValue="id">
+    bindValue="id" 
+	[(ngModel)]="selectedValues">
+
 
 		<ng-template ng-header-tmp let-items="items">
 				<input type="checkbox" (change)="toggleCheckAll($event)"/>
@@ -23,7 +25,8 @@
 			</div>
 		</ng-template>
 
-		<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-			<input id="item-{{index}}" type="checkbox" [checked]="item$.selected" /> {{item.name}}
+		<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" >
+			<input id="item-{{index}}" type="checkbox" [checked]="item$.selected"    /> {{item.name}}
     </ng-template>
+
 </ng-select>
