@@ -33,6 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SelectMutiModuleComponent } from './conponent/select-muti-module/select-muti-module.component';
 import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
+import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
     AdminProductComponent,
     AdminEditComponent,
     SelectMutiModuleComponent,
-    AdminAddComponent
+    AdminAddComponent,
+    AdminAccountComponent
   ],
   imports: [
     BrowserModule,
