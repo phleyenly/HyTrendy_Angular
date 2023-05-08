@@ -1,0 +1,125 @@
+<main>
+    <h1 class="title1"> Thêm Sản Phẩm</h1>
+	<ol class="breadcrumb mb-4 title2">
+		<li class="breadcrumb-item"><a >Trang chủ</a></li>
+
+		<li class="breadcrumb-item"> Thêm Sản Phẩm</li>
+	</ol>
+    <div class="container-fluid px-4">
+        <!-- <form> -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="mb-3 row">
+                        
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title">Tên Sản Phẩm</label> <input type="text"
+                                    class="form-control" id="nameproduct" name="name"
+                                    [(ngModel)]="product.name">
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="thumbnail">Kho</label> <input type="text"
+                                    class="form-control" id="stock" name="stock"
+                                   [(ngModel)]="product.stock" value="{{product.stock}}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="thumbnail">Size</label> 
+                                <app-select-muti-module [optionItems]="size" (onChangeSelect)="onchangeMultiSelect($event)" [multipe]="true" > </app-select-muti-module>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="title">Giá Tiền</label> <input type="text"
+                                    class="form-control" id="price" name="price"
+                                    value="{{product.price}}" [(ngModel)]="product.price">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="thumbnail">Chất Liệu</label> <input type="text"
+                                    class="form-control" id="material" name="material"
+                                    value="{{product.material}}" [(ngModel)]="product.material">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="shortdescripsion">Xuất Xứ</label> <input
+                                    type="text" class="form-control" id="origin"
+                                    name="origin" value="{{product.origin}}" [(ngModel)]="product.origin">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="shortdescripsion">Phong Cách</label> <input
+                                    type="text" class="form-control" id="tags"
+                                    name="tags" value="{{product.tags}}" [(ngModel)]="product.tags">
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                <!-- theem cai cate va type -->
+                <div class="mb-3 row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="thumbnail">Thể Loại</label> 
+                            <app-select-muti-module [multipe]="false" [optionItems]="categorySelect" (onChangeSelect)="onchangeCategorySelect($event)" ></app-select-muti-module>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="thumbnail">Loại</label> 
+                            <app-select-muti-module [multipe]="false" [optionItems]="typeSelect" (onChangeSelect)="onchageTypeSelect($event)" ></app-select-muti-module>
+                        </div>
+                    </div>
+                    
+
+                    
+                </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="content">Mô Tả</label>
+                                <textarea rows="7" class="form-control " id="description"
+                                    name="description" [(ngModel)]="product.description">{{product.description}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="content">Hình Ảnh</label>
+                                <textarea rows="7" class="form-control " id="image"
+                                    name="image" [(ngModel)]="product.image">{{product.image}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <button id="edit" class="btn btn-success waves-effect waves-light "
+                    (click)="createProduct()">
+                        <i class="ri-save-fill "></i> Xác Nhận
+                    </button>
+                    
+                    
+                    
+                </div>
+            </div>
+        <!-- </form> -->
+    </div>
+</main>

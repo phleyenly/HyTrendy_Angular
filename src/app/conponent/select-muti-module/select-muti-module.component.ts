@@ -24,7 +24,6 @@ export class SelectMutiModuleComponent implements OnInit  {
 
   ngOnInit(): void {
    
-   this.selectedValues = { id: 1 , name: "Thời Trang Nam"} 
    
   setTimeout(() => {
     console.log(this.selectedValues)  

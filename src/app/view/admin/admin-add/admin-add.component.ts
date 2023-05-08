@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { async } from 'rxjs';
+import { Component } from '@angular/core';
 import { Category } from 'src/app/interface/category';
 import { Product } from 'src/app/interface/product';
 import { SelectItem } from 'src/app/interface/select-item';
@@ -8,13 +6,12 @@ import { CategoryService } from 'src/app/service/category.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
-  selector: 'app-admin-edit',
-  templateUrl: './admin-edit.component.html',
-  styleUrls: ['./admin-edit.component.scss']
+  selector: 'app-admin-add',
+  templateUrl: './admin-add.component.html',
+  styleUrls: ['./admin-add.component.scss']
 })
-export class AdminEditComponent implements OnInit {
+export class AdminAddComponent {
   product : Product = {id:-1 , name : "", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: "" , categoryId: -1, typeId: -1};
-  id = this.route.snapshot.paramMap.get("id") || '';
   size: SelectItem[] = [
     {id: 1 , name: "S" },
     {id: 2 , name: "M" },
@@ -26,18 +23,15 @@ export class AdminEditComponent implements OnInit {
   categorySelect: SelectItem[] = [];
   typeSelect: SelectItem[] = [];
   SizeProduct: number[] = [];
-  
- 
-
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute,
+   
     private categoryService: CategoryService
   ){}
 
   async ngOnInit() {
-    const idNumber = parseInt(this.id);
-   await this.getById(idNumber);
+    
+   
     await this.getAllCategory()
     this.categorySelect = this.categories.map((item: Category) => {
       return {id: item.id, name: item.name}
@@ -63,13 +57,7 @@ export class AdminEditComponent implements OnInit {
    this.product = await this.productService.getById(id).toPromise()
   }
 
-  updateProduct() {
-    const idNumber = parseInt(this.id);
-    // console.log(this.product)
-    this.productService.updatedById(idNumber, this.product).subscribe((m: any) =>{
-      alert(m.message);
-    })
-  }
+  
 
   onchangeMultiSelect($event: any) {
     if(Array.isArray($event)) {
@@ -94,5 +82,11 @@ export class AdminEditComponent implements OnInit {
   async getAllCategory() {
    this.categories = await this.categoryService.getAllCategory().toPromise()
   }
+
+createProduct() {
+  this.productService.createProduct(this.product).subscribe((m: any) => {
+    alert(m.message)
+  })
+}
 
 }

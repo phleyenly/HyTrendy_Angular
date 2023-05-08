@@ -28,4 +28,13 @@ export class ProductService {
     const headers = { 'Content-Type': 'application/json' };
     return this.http.put<string>(`${baseUrl}/${id}`, JSON.stringify(product), { headers } )
   }
+
+  createProduct (product: Product) : Observable <string> {
+    const headers = { 'Content-Type': 'application/json'};
+    return this.http.post<string>(baseUrl,  JSON.stringify(product), { headers })
+  }
+
+  deleteProduct (id: number) : Observable <string> {
+    return this.http.delete<string> (baseUrl, {body: id})
+  }
 }
