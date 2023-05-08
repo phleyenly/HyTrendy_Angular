@@ -10,6 +10,7 @@ import { AdminHomeComponent } from './view/admin/admin-home/admin-home.component
 import { AdminProductComponent } from './view/admin/admin-product/admin-product.component';
 import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
 import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
+import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'admin/products', component: AdminProductComponent },
   { path: 'admin/products/edit/:id', component: AdminEditComponent },
   { path: 'admin/products/add' , component: AdminAddComponent},
+  { path: 'admin/account' , component: AdminAccountComponent},
 
   
 

@@ -34,6 +34,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SelectMutiModuleComponent } from './conponent/select-muti-module/select-muti-module.component';
 import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
 import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
+import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin-edit-account.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { AdminAccountComponent } from './view/admin/admin-account/admin-account.
     AdminEditComponent,
     SelectMutiModuleComponent,
     AdminAddComponent,
-    AdminAccountComponent
+    AdminAccountComponent,
+    AdminEditAccountComponent
   ],
   imports: [
     BrowserModule,
