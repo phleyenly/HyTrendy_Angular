@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DropdownComponent } from './conponent/dropdown/dropdown.component';
 import { ErrorComponent } from './view/error/error.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './conponent/slider/slider.component';
 import { HomeProductsComponent } from './conponent/home-products/home-products.component';
 import { SlideProductComponent } from './conponent/home-products/slide-product/slide-product.component';
@@ -35,6 +35,7 @@ import { SelectMutiModuleComponent } from './conponent/select-muti-module/select
 import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
 import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
 import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin-edit-account.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -77,7 +78,13 @@ import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin
     FormsModule,
     NgSelectModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

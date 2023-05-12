@@ -11,19 +11,20 @@ import { AdminProductComponent } from './view/admin/admin-product/admin-product.
 import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
 import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
 import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'products/:id', component: ProductDetailComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'admin/home', component: AdminHomeComponent },
-  { path: 'admin/products', component: AdminProductComponent },
-  { path: 'admin/products/edit/:id', component: AdminEditComponent },
-  { path: 'admin/products/add' , component: AdminAddComponent},
-  { path: 'admin/account' , component: AdminAccountComponent},
+  { path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard] },
+  { path: 'admin/products', component: AdminProductComponent, canActivate: [AuthGuard] },
+  { path: 'admin/products/edit/:id', component: AdminEditComponent, canActivate: [AuthGuard] },
+  { path: 'admin/products/add' , component: AdminAddComponent, canActivate: [AuthGuard]},
+  { path: 'admin/account' , component: AdminAccountComponent, canActivate: [AuthGuard]},
 
   
 
