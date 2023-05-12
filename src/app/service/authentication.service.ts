@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../interface/authentication';
 import { Observable } from 'rxjs';
+import { LoginData } from '../interface/loginData';
 
 const baseUrl = "http://localhost:8080/api";
 
@@ -12,9 +13,9 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  login(loginInfo: Login): Observable<string> {
+  login(loginInfo: Login): Observable<LoginData> {
   
-    return this.http.post<string>(`${baseUrl}/login`, loginInfo, { responseType: 'text' as 'json' }) ;
+    return this.http.post<LoginData>(`${baseUrl}/login`, loginInfo) ;
 
   }
 
