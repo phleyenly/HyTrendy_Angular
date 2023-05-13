@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../interface/person';
@@ -17,5 +17,18 @@ export class PersonService {
 
   getAllPerson(): Observable<Person[]> {
     return this.http.get<Person[]>(`${baseUrl}/person`)
+  }
+
+  // getPersonByRole(role: string) : Observable<Person[]> {
+  //   return this.http.get<Person[]>(`${baseUrl}/person/${role}`)
+  // }
+
+  getPersonByRole(role: string): Observable<Person[]> {
+    const params = new HttpParams().set('role', role);
+    return this.http.get<Person[]>(`${baseUrl}/person`, { params });
+  }
+
+  getPersonById(id: number) : Observable<Person> {
+    return this.http.get<Person>(`${baseUrl}/person/${id}`)
   }
 }

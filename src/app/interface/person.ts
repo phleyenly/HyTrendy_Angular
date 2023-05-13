@@ -1,8 +1,8 @@
 export interface Person {
     id: number;
     name: string;
-    password: number;
-    phone: number;
+    password: string;
+    phone: string;
     role: string;
     username: string;
     address: string;
