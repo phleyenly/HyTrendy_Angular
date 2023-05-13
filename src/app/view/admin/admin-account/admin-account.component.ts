@@ -18,8 +18,13 @@ export class AdminAccountComponent implements OnInit{
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getAllPerson();
-    this.getPersonByRole(this.role);
+    if(this.role === '') {
+      this.getAllPerson();
+    } else {
+       this.getPersonByRole(this.role);
+    }
+    
+   
   }
 
   getAllPerson() {
