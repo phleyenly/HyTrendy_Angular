@@ -38,5 +38,11 @@ export class AdminAccountComponent implements OnInit{
       this.persons = p;
     })
   }
-
+  
+  deleteById(id: number) {
+    this.personService.deleteById(id).subscribe((m:any)=> {
+      alert(m.message);
+      location.reload();
+    })
+  }
 }

@@ -36,6 +36,7 @@ import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
 import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
 import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin-edit-account.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-add-account.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { AuthInterceptor } from './auth.interceptor';
     SelectMutiModuleComponent,
     AdminAddComponent,
     AdminAccountComponent,
-    AdminEditAccountComponent
+    AdminEditAccountComponent,
+    AdminAddAccountComponent
   ],
   imports: [
     BrowserModule,

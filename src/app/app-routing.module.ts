@@ -13,6 +13,7 @@ import { AdminAddComponent } from './view/admin/admin-add/admin-add.component';
 import { AdminAccountComponent } from './view/admin/admin-account/admin-account.component';
 import { AuthGuard } from './auth.guard';
 import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin-edit-account.component';
+import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-add-account.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'admin/products/add' , component: AdminAddComponent, canActivate: [AuthGuard]},
   { path: 'admin/account' , component: AdminAccountComponent, canActivate: [AuthGuard]},
   { path: 'admin/account/edit/:id' , component: AdminEditAccountComponent, canActivate: [AuthGuard]},
+  { path: 'admin/account/create' , component: AdminAddAccountComponent, canActivate: [AuthGuard]},
 
   
 

@@ -35,7 +35,14 @@ export class PersonService {
   updataPersonById(id: number, person: Person) : Observable <string> {
     return this.http.put<string>(`${baseUrl}/person/${id}`, person)
   
-}
+  }
+  createPerson(person: Person) : Observable<string> {
+    return this.http.post<string>(`${baseUrl}/person`, person)
+  }
+
+  deleteById(id:number) : Observable<string> {
+    return this.http.delete<string>(`${baseUrl}/person/${id}`)
+  }
 
 }
 
