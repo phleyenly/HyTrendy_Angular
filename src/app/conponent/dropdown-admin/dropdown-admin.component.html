@@ -4,7 +4,7 @@
         {{content.title}}
     </button>
     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem *ngFor="let item of content.selectItem">{{item}}</button>
+        <a ngbDropdownItem *ngFor="let item of content.selectItem" href="/admin/account?role={{item}}">{{item}}</a>
     
     </div>
 </div>

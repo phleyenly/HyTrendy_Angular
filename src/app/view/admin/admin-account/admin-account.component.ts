@@ -18,7 +18,7 @@ export class AdminAccountComponent implements OnInit{
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    if(this.role === '') {
+    if(this.role === '' || this.role==='Tất cả người dùng') {
       this.getAllPerson();
     } else {
        this.getPersonByRole(this.role);

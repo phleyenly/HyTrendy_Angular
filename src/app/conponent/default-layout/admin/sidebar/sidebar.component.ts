@@ -11,14 +11,14 @@ import { PersonService } from 'src/app/service/person.service';
 })
 export class SidebarComponent implements OnInit{
   
-  role: string[] =[];
+  role: string[] =['Tất cả người dùng'];
   contentRole: Content = {title: "", selectItem: []};
   categories: Category[]= [];
   constructor(private personService: PersonService,
     private categoryService: CategoryService ){}
 
  async ngOnInit() {
-   await this.getRole();
+    await this.getRole();
     this.contentRole.title = 'Người Dùng';
     this.contentRole.selectItem = this.role;
 
@@ -31,8 +31,8 @@ export class SidebarComponent implements OnInit{
     //   this.role = c;
 
     // })
-    this.role = await this.personService.getRole().toPromise();
-
+    const role = await this.personService.getRole().toPromise();// ['Admin','Client']
+    this.role.push(...role)
   }
 
 
