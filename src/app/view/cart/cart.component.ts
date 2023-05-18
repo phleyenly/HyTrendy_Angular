@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Cart } from 'src/app/interface/cart';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -7,29 +7,41 @@ import { CartService } from 'src/app/service/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit  {
   cart: Cart[] = [];
+  sumPrice: number = 0;
 
   constructor( private cartService: CartService){}
 
-  ngOnInit(): void {
-    this.getCart();
+async  ngOnInit() {
+  await  this.getCart(); 
+  this.totalPrice();
+  console.log(this.sumPrice)
+    
+  
 
-    setTimeout(() => {
-      console.log(this.cart[0].quantity)
-    }, 5000);
+    // setTimeout(() => {
+    // this.totalPrice();
+    // console.log(this.sumPrice)
+    // }, 5000);
+
+    
   }
+  
 
-  getCart() {
-    this.cartService.getCart().subscribe((c: Cart[]) =>{
-      this.cart = c;
-    })
+async  getCart() {
+   this.cart = await this.cartService.getCart().toPromise()
+
+    // this.cartService.getCart().subscribe((c: Cart[]) =>{
+    //   this.cart = c;
+    // })
   }
 
   up(index: number) {
     
     if(this.cart[index].quantity <10) {
        this.cart[index].quantity++
+      this.totalPrice()
     }
    
   }
@@ -37,8 +49,27 @@ export class CartComponent implements OnInit {
   down(index: number) {
     if(this.cart[index].quantity > 1) {
        this.cart[index].quantity--;
+       this.totalPrice()
     }
    
   }
 
+  submit() {
+    console.log(this.cart)
+  }
+
+  
+  totalPrice() {
+    this.sumPrice =0;
+    for(let i =0; i<this.cart.length; i++) {
+      this.sumPrice =  this.cart[i].price*this.cart[i].quantity + this.sumPrice;
+    }
+  }
+
+
+  deleteCartByIdProduct(id: number) {
+    this.cartService.deleteCartByIdProduct(id).subscribe((m: any)=> {
+      this.cart = this.cart.filter(item => id !== item.idProduct);
+    })
+  }
 }

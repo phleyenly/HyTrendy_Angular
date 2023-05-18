@@ -44,31 +44,31 @@
                         </td>
                         <td class="cart-quantity">
                             <p class="cart-qnt">
-                                <input value="{{item.quantity}}" [(ngModel)]="item.quantity" name="quantity" type="text">
+                                <input [(ngModel)]="item.quantity" name="quantity{{i}}" type="text">
                                 <a  class="cart-plus" (click)="up(i)"><i class="fa fa-angle-up"></i></a>
                                 <a  class="cart-minus" (click)="down(i)"><i class="fa fa-angle-down"></i></a>
                             </p>
                         </td>
                         <td class="cart-summ">
-                            <b>$220</b>
+                            <b>{{item.price * item.quantity}}</b>
                             <p class="cart-forone">unit price <b>$220</b></p>
                         </td>
-                        <td class="cart-del">
-                            <a href="#" class="cart-remove"></a>
+                        <td class="cart-del" >
+                            <a (click)="deleteCartByIdProduct(item.idProduct)" class="cart-remove"></a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <ul class="cart-total">
-                <li class="cart-summ">TOTAL: <b>$815</b></li>
+                <li class="cart-summ">TOTAL: <b>{{sumPrice}}</b></li>
             </ul>
             <div class="cart-submit">
                 <div class="cart-coupon">
                     <input placeholder="your coupon" type="text">
                     <a class="cart-coupon-btn" href="#"><img src="assets/client/img/ok.png" alt="your coupon"></a>
                 </div>
-                <a href="#" class="cart-submit-btn">Checkout</a>
+                <a class="cart-submit-btn" (click)="submit()">Checkout</a>
                 <a href="#" class="cart-clear">Clear cart</a>
             </div>
         </form>
