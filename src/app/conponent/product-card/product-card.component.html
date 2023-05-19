@@ -36,7 +36,7 @@
                 <a  class="prodlist-i-add" (click)="createCart()">Add to cart</a>
             </p>
         <span class="prodlist-i-price">
-            <b>{{product.price}}</b>
+            <b>{{product.price | currency:'VND'}}</b>
                                     </span>
         </div>
         <p class="prodlist-i-info">

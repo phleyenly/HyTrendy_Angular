@@ -77,29 +77,24 @@
 					</ul>
 					<p class="prod-skuttl">CLOTHING SIZES</p>
 					<div class="offer-props-select">
-						<p>XL</p>
+						<p>{{product.size[0]}}</p>
 						<ul>
-							<li><a href="#">XS</a></li>
-							<li><a href="#">S</a></li>
-							<li><a href="#">M</a></li>
-							<li class="active"><a href="#">XL</a></li>
-							<li><a href="#">L</a></li>
-							<li><a href="#">4XL</a></li>
-							<li><a href="#">XXL</a></li>
+							<li *ngFor="let item of product.size" (click)="selectSize(item)"><a >{{item}}</a></li>
+							
 						</ul>
 					</div>
 				</div>
 				<div class="prod-info">
 					<p class="prod-price">
-						<b class="item_current_price">{{product.price}}</b>
+						<b class="item_current_price">{{product.price | currency:'VND'}}</b>
 					</p>
 					<p class="prod-qnt">
-						<input value="1" type="text">
-						<a href="#" class="prod-plus"><i class="fa fa-angle-up"></i></a>
-						<a href="#" class="prod-minus"><i class="fa fa-angle-down"></i></a>
+						<input value="{{quantity}}" type="text">
+						<a  class="prod-plus" (click)="up()"><i class="fa fa-angle-up"></i></a>
+						<a  class="prod-minus" (click)="down()"><i class="fa fa-angle-down"></i></a>
 					</p>
 					<p class="prod-addwrap">
-						<a href="#" class="prod-add" rel="nofollow">Add to cart</a>
+						<a  class="prod-add" rel="nofollow" (click)="createCart()">Add to cart</a>
 					</p>
 				</div>
 				<ul class="prod-i-props">
