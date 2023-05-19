@@ -18,27 +18,22 @@
             <div class="prodlist-i-skuitem">
                 <p class="prodlist-i-skuttl">Clothes sizes</p>
                 <div class="offer-props-select">
-                    <p>XS</p>
-                    <ul>
-                        <li><a href="#">S</a></li>
-                        <li><a href="#">M</a></li>
-                        <li><a href="#">L</a></li>
-                        <li class="active"><a href="#">XS</a></li>
-                        <li><a href="#">XL</a></li>
-                        <li><a href="#">XXL</a></li>
-                        <li><a href="#">XXXL</a></li>
+                    <p>{{product.size[0]}}</p>
+                    <ul >
+                        <li *ngFor="let item of product.size" (click)="selectSize(item)"><a >{{item}}</a></li>
+                        
                     </ul>
                 </div>
             </div>
         </div>
         <div class="prodlist-i-action">
             <p class="prodlist-i-qnt">
-                <input value="1" type="text">
-                <a href="#" class="prodlist-i-plus"><i class="fa fa-angle-up"></i></a>
-                <a href="#" class="prodlist-i-minus"><i class="fa fa-angle-down"></i></a>
+                <input value="{{quantity}}" [(ngModel)]="quantity" name="quantity" type="text">
+                <a  class="prodlist-i-plus" (click)="up()"><i class="fa fa-angle-up"></i></a>
+                <a  class="prodlist-i-minus" (click)="down()"><i class="fa fa-angle-down"></i></a>
             </p>
             <p class="prodlist-i-addwrap">
-                <a href="#" class="prodlist-i-add">Add to cart</a>
+                <a  class="prodlist-i-add" (click)="createCart()">Add to cart</a>
             </p>
         <span class="prodlist-i-price">
             <b>{{product.price}}</b>

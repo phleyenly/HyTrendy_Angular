@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cart } from '../interface/cart';
+import { InforCreateCart } from '../interface/infor-create-cart';
 
 const baseUrl = "http://localhost:8080/api/cart";
 
@@ -20,5 +21,9 @@ export class CartService {
  
   deleteCartByIdCart(id: number) : Observable<string> {
     return this.http.delete<string>(`${baseUrl}/${id}`)
+  }
+
+  createCart(cart: InforCreateCart): Observable<string> {
+    return this.http.post<string>(baseUrl, cart);
   }
 }
