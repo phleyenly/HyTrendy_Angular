@@ -18,7 +18,7 @@ export class CartService {
 
   }
  
-  deleteCartByIdProduct(id: number) : Observable<string> {
+  deleteCartByIdCart(id: number) : Observable<string> {
     return this.http.delete<string>(`${baseUrl}/${id}`)
   }
 }

@@ -4,4 +4,5 @@ export interface Cart {
      name: string;
 	 size: string;
 	 idProduct: number;
+	 idCart: number;
 }

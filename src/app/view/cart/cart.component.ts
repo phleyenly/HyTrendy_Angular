@@ -67,9 +67,9 @@ async  getCart() {
   }
 
 
-  deleteCartByIdProduct(id: number) {
-    this.cartService.deleteCartByIdProduct(id).subscribe((m: any)=> {
-      this.cart = this.cart.filter(item => id !== item.idProduct);
+  deleteCartByIdCart(id: number) {
+    this.cartService.deleteCartByIdCart(id).subscribe((m: any)=> {
+      this.cart = this.cart.filter(item => id !== item.idCart);
     })
   }
 }
