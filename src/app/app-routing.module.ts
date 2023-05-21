@@ -17,10 +17,10 @@ import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-a
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
-  { path: 'products/:id', component: ProductDetailComponent, canActivate: [AuthGuard] },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard] },
   { path: 'admin/products', component: AdminProductComponent, canActivate: [AuthGuard] },

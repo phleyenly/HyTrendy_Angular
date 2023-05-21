@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Cart } from 'src/app/interface/cart';
 import { CartService } from 'src/app/service/cart.service';
+import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,9 @@ export class CartComponent implements OnInit  {
   cart: Cart[] = [];
   sumPrice: number = 0;
 
-  constructor( private cartService: CartService){}
+  constructor(
+    private cartService: CartService,
+    private orderService: OrderService){}
 
 async  ngOnInit() {
   await  this.getCart(); 
@@ -54,10 +57,6 @@ async  getCart() {
    
   }
 
-  submit() {
-    console.log(this.cart)
-  }
-
   
   totalPrice() {
     this.sumPrice =0;
@@ -70,6 +69,16 @@ async  getCart() {
   deleteCartByIdCart(id: number) {
     this.cartService.deleteCartByIdCart(id).subscribe((m: any)=> {
       this.cart = this.cart.filter(item => id !== item.idCart);
+      this.totalPrice();
     })
+  }
+
+  createOrder() {
+    this.orderService.createOrder().subscribe((m:any)=>{
+      alert(m.message);
+      this.cart = [];
+      this.totalPrice();
+    })
+
   }
 }

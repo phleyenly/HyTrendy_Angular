@@ -36,8 +36,13 @@ export class ProductCardComponent {
   createCart() {
     this.cart.id = this.product.id;
     this.cart.quantity= this.quantity;
-    this.cartService.createCart(this.cart).subscribe((m: any)=>{
-      alert(m.message);
+    this.cartService.createCart(this.cart).subscribe(
+      (m: any)=>{
+        alert(m.message);
+      }, (err) => {
+        alert("Bạn Cần Đăng Nhập");
+        window.location.href = '/login';
+
     })
   }
 }
