@@ -37,6 +37,9 @@ import { AdminAccountComponent } from './view/admin/admin-account/admin-account.
 import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin-edit-account.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-add-account.component';
+import { OrderComponent } from './view/order/order.component';
+import { CollapseOrderComponent } from './conponent/collapse-order/collapse-order.component';
+import { AdminOrderComponent } from './view/admin/admin-order/admin-order.component';
 
 
 @NgModule({
@@ -67,7 +70,10 @@ import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-a
     AdminAddComponent,
     AdminAccountComponent,
     AdminEditAccountComponent,
-    AdminAddAccountComponent
+    AdminAddAccountComponent,
+    OrderComponent,
+    CollapseOrderComponent,
+    AdminOrderComponent
   ],
   imports: [
     BrowserModule,

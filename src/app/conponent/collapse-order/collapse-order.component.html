@@ -1,0 +1,41 @@
+<div class="prodtb-i">
+    <div class="prodtb-i-top d-flex ">
+        <button class="prodtb-i-toggle" type="button" (click)="isOpen = !isOpen" [ngClass]="isOpen ? 'opened' : ''"></button>
+        <div class="w-25"><h3 class="prodtb-i-ttl custom-text" ><a >{{order.person.name}}</a></h3></div>
+        <div  class="prodtb-i-style custom-text" >
+            <h3 class="size-text">{{order.date}}</h3>
+        </div>
+        <div class="prodtb-i-style custom-text">
+            <h3 class="size-text">{{quantityProduct + " sản phẩm"}} </h3>
+        </div>
+        <div class="prodtb-i-info" >
+            <span class="prodtb-i-price" >
+                <b>{{summ | currency:'VND'}}</b>
+            </span>
+        </div>
+        <p class="prodtb-i-action">
+            <span [ngClass]="[button, 'min-wight-btn']">{{order.status}}</span>
+        </p>
+    </div>
+    <div class="prodlist-i" [ngClass]="isOpen ? 'd-block' : ''" *ngFor="let item of order.products">
+        <a class="list-img-carousel prodlist-i-img" ><!-- NO SPACE --><img src="{{item.image[0]}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+        <div class="prodlist-i-cont">
+            <div class="prodlist-i-txt">{{item.description}} </div>
+            <div class="prodlist-i-skuwrap">
+                <div class="prodlist-i-skuitem">
+                    <p class="prodlist-i-skuttl">Clothes sizes</p>
+                        <div class="offer-props-select">
+                        <span class="highlighted-text">{{item.sizeBuy}}</span>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="prodlist-i-props2">
+            <li><span class="prodlist-i-propttl"><span>Tên</span></span> <span class="prodlist-i-propval">{{item.name }}</span></li>
+            <li><span class="prodlist-i-propttl"><span>Giá</span></span> <span class="prodlist-i-propval">{{item.price | currency:'VND'}}</span></li>
+            <li><span class="prodlist-i-propttl"><span>Số Lượng</span></span> <span class="prodlist-i-propval">{{item.quantity}}</span></li>
+            <li><span class="prodlist-i-propttl"><span>Trạng Thái</span></span> <span class="prodlist-i-propval">{{order.status}}</span></li>
+        </ul>
+    </div>
+</div>

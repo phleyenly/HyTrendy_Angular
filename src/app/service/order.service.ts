@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { Order } from '../interface/order';
 
 const baseUrl = "http://localhost:8080/api";
 
@@ -16,5 +17,7 @@ export class OrderService {
     return this.http.post<any>(`${baseUrl}/order`, {});
   }
 
-  
+  findAllOrder() : Observable<Order[]> {
+    return this.http.get<Order[]>(`${baseUrl}/order`)
+  }
 }

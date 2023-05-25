@@ -14,6 +14,8 @@ import { AdminAccountComponent } from './view/admin/admin-account/admin-account.
 import { AuthGuard } from './auth.guard';
 import { AdminEditAccountComponent } from './view/admin/admin-edit-account/admin-edit-account.component';
 import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-add-account.component';
+import { OrderComponent } from './view/order/order.component';
+import { AdminOrderComponent } from './view/admin/admin-order/admin-order.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
@@ -22,6 +24,7 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
+    { path: 'order', component: OrderComponent },
   { path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard] },
   { path: 'admin/products', component: AdminProductComponent, canActivate: [AuthGuard] },
   { path: 'admin/products/edit/:id', component: AdminEditComponent, canActivate: [AuthGuard] },
@@ -29,6 +32,8 @@ const routes: Routes = [
   { path: 'admin/account' , component: AdminAccountComponent, canActivate: [AuthGuard]},
   { path: 'admin/account/edit/:id' , component: AdminEditAccountComponent, canActivate: [AuthGuard]},
   { path: 'admin/account/create' , component: AdminAddAccountComponent, canActivate: [AuthGuard]},
+  { path: 'admin/order' , component: AdminOrderComponent, canActivate: [AuthGuard]},
+
 
   
 

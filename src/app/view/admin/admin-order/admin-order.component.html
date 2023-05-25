@@ -1,0 +1,34 @@
+<h2 class="title1"> Tất Cả Đơn Đặt Hàng</h2>
+<ol class="breadcrumb mb-4 title2">
+    <li class="breadcrumb-item"><a >Trang chủ</a></li>
+
+    <li class="breadcrumb-item"> Tất Cả Đơn Đặt Hàng</li>
+</ol>
+<div class="prod-items section-items prod-tb">
+
+    <div class="prodtb-i">
+        <div class="prodtb-i-top d-flex">
+            <div class="w-25"><h3 class="prodtb-i-ttl custom-text" ><a >Tên Người Đặt Hàng</a></h3></div>
+            <div  class="prodtb-i-style custom-text" >
+                <h3 class="size-text">Ngày Đặt Hàng</h3>
+            </div>
+            <div class="prodtb-i-style custom-text">
+                <h3 class="size-text">Tổng số sản phẩm </h3>
+            </div>
+            <div class="prodtb-i-info" >
+                <span class="prodtb-i-price" >
+                    <b>Tổng Tiền</b>
+                </span>
+            </div>
+            <p class="prodtb-i-action size-text custom-text">
+                <span >Trạng Thái Đơn Hàng </span>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+    <app-collapse-order *ngFor="let item of order" [order]="item"></app-collapse-order>
+</div>
