@@ -1,5 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { Order } from 'src/app/interface/order';
+
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { SelectItem } from 'src/app/interface/select-item';
+
 
 @Component({
   selector: 'app-collapse-order',
@@ -17,6 +21,20 @@ export class CollapseOrderComponent  implements OnInit{
   summ : number = 0;
 
   button: string = '';
+
+  modalRef?: BsModalRef;
+
+  listStatus: SelectItem[] = [
+    {id: 1 , name: "Chờ Xác Nhận" },
+    {id: 2 , name: "Chờ Lấy Hàng" },
+    {id: 3 , name: "Đang Giao Hàng" },
+    {id: 4 , name: "Đã Nhận Hàng" },
+  ];
+  constructor(private modalService: BsModalService) {}
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 
   ngOnInit(): void {
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, RendererFactory2 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,7 @@ import { AdminAddAccountComponent } from './view/admin/admin-add-account/admin-a
 import { OrderComponent } from './view/order/order.component';
 import { CollapseOrderComponent } from './conponent/collapse-order/collapse-order.component';
 import { AdminOrderComponent } from './view/admin/admin-order/admin-order.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -84,9 +85,10 @@ import { AdminOrderComponent } from './view/admin/admin-order/admin-order.compon
     HttpClientModule,
     CarouselModule.forRoot(),
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    ModalModule.forRoot(),
   ],
-  providers: [
+  providers: [ 
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
