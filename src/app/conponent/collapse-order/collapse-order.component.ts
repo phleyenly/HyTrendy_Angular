@@ -3,6 +3,7 @@ import { Order } from 'src/app/interface/order';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SelectItem } from 'src/app/interface/select-item';
+import { OrderService } from 'src/app/service/order.service';
 
 
 @Component({
@@ -30,7 +31,9 @@ export class CollapseOrderComponent  implements OnInit{
     {id: 3 , name: "Đang Giao Hàng" },
     {id: 4 , name: "Đã Nhận Hàng" },
   ];
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private modalService: BsModalService,
+    private orderService: OrderService) {}
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -51,6 +54,23 @@ export class CollapseOrderComponent  implements OnInit{
     }
 
   
+  updateStatusOrderById(id: number, status: string) {
+    this.orderService.updateStatusOrderById(id, status).subscribe((m: any) => {
+      alert(m.message);
+      location.reload();
+    }) 
+  }
+
+  update() {
+    this.updateStatusOrderById(this.order.id, this.order.status);
+    
+
+  }
+
+  onchangeStatusSelectct($event: any) {
+    this.order.status = $event.name;
+  }
+
   totalPrice() {
      const products = this.order.products;
     for( let p of products) {

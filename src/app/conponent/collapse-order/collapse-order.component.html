@@ -50,10 +50,11 @@
     <div class="modal-body">
       <div id="my-modal-description">
         Hãy tick chọn một trong các trạng thái sau:
-        <app-select-muti-module [multipe]="false" [optionItems]="listStatus"></app-select-muti-module>
+        <app-select-muti-module [multipe]="false" [optionItems]="listStatus" (onChangeSelect)="onchangeStatusSelectct($event)"></app-select-muti-module>
       </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" (click)="modalRef?.hide()">Close</button>
+        <button type="button" class="btn btn-success" (click)="update()">Save Change</button>
+        <button type="button" class="btn btn-danger" (click)="modalRef?.hide()">Close</button>
     </div>
   </ng-template>

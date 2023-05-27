@@ -20,4 +20,8 @@ export class OrderService {
   findAllOrder() : Observable<Order[]> {
     return this.http.get<Order[]>(`${baseUrl}/order`)
   }
+
+  updateStatusOrderById(id: number, status: string): Observable<string> {
+    return this.http.put<string>(`${baseUrl}/order`, {id, status});
+  }
 }
