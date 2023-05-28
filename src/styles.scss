@@ -3,7 +3,6 @@
 //@import 'src/assets/client/scss/bootstrap.min.css';
 @import 'src/assets/client/scss/flexslider.css';
 @import 'src/assets/client/scss/font-awesome.min.css';
-@import 'src/assets/client/scss/font-awesome.min.css';
 @import 'src/assets/client/scss/ion.rangeSlider.css';
 @import 'src/assets/client/scss/ion.rangeSlider.skinFlat.css';
 @import 'src/assets/client/scss/jQuery.Brazzers-Carousel.css';
@@ -23,6 +22,22 @@
 
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+.page-title {
+    font-size: 36px;
+    margin: 0;
+    line-height: 75px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: inherit;
+}
+
 .w-1170px {
     width: 1170px !important;
 }
@@ -30,8 +45,24 @@
 .h-36px {
     height: 36px !important ;
 }
-/* Importing Bootstrap SCSS file. */
-@import "./node_modules/bootstrap/scss/bootstrap";
 
-/* Importing Datepicker SCSS file. */
-@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+.bg-fff {
+    background-color: #fff;
+}
+
+.mh-493px {
+    min-height: 518px;
+}
+
+.admin-container {
+    .container {
+        padding-top: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+.breadcrumb-item {
+    text-decoration: underline;
+}

@@ -1,40 +1,92 @@
-<main class="container">
-<table class="table table-bordered  ">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Tên</th>
-        <th scope="col">Hình Ảnh</th>
-        <th scope="col">Giá</th>
-        <th scope="col">Tồn Kho</th>
-        <th scope="col">Size</th>
-        <th scope="col">Phong Cách</th>
-        <th scope="col">Xuất Xứ</th>
-        <th scope="col">Mô Tả</th>
-        <th scope="col">Chất Liệu</th>
-        <th scope="col">Tác Vụ</th>
+<main class="container mh-493px">
+  <h1 class=" page-title"> Tất Cả Sản Phẩm</h1>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row mb-2">
+          <div class="col-sm-4">
+            <a class="btn btn-success mb-2"><i class="fa fa-plus me-2"></i> Thêm Sản Phẩm</a>
+          </div>
+          <div class="col-sm-8">
+            <div class="text-sm-end d-flex flex-row float-end">
+              <div class="input-group px-3 mb-2 me-1">
+                <input class="form-control" type="text" placeholder="Nhập tên..." aria-label="Nhập tên..."
+                  aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-danger" id="btnNavbarSearch" type="button"><i class="fa fa-search"></i></button>
+              </div>
+              <button type="button" class="btn btn-success mb-2">Xuất Báo Cáo</button>
+            </div>
+          </div><!-- end col-->
+        </div>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of products">
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.name}}</td>
-        <td><img  alt="" src="{{item.image[0]}}"></td>
-        <td>{{item.price}}</td>
-        <td>{{item.stock}}</td>
-        <td>{{item.size}}</td>
-        <td>{{item.tags}}</td>
-        <td>{{item.origin}}</td>
-        <td>{{item.description}}</td>
-        <td>{{item.material}}</td>
-        <td>
-          <span ><a href="/admin/products/edit/{{item.id}}"><i
-              class="fa fa-pencil"></i> Sửa</a><br/> </span> 
-          <span (click)="deleteProduct(item.id)"> <i class="fa fa-trash"></i> Xóa</span>
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
+        <div class="table-responsive">
+          <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">Hình Ảnh</th>
+                <th scope="col" class="column-name">Tên</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Tồn Kho</th>
+                <th scope="col">Xuất Xứ</th>
+                <th scope="col">Phong Cách</th>
+                <th scope="col">Chất Liệu</th>
+                <th scope="col">Tác Vụ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of products; let i = index">
+                <tr (click)="openCollapse(i)" class="product-item">
+                  <td><img class="image-product" alt="" src="{{item.image[0]}}"></td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.stock}}</td>
+                  <td>{{item.origin}}</td>
+                  <td>{{item.tags}}</td>
+                  <td>{{item.material}}</td>
+                  <td>
+                    <span><a href="/admin/products/edit/{{item.id}}"><i class="fa fa-pencil"></i> Sửa</a><br /> </span>
+                    <span (click)="deleteProduct(item.id)"> <i class="fa fa-trash"></i> Xóa</span>
+                  </td>
+
+                </tr>
+                <tr id="p-{{ i }}" class="d-none">
+                  <td colspan="8">
+                    <div class="prod-items section-items prod-tb">
+                      <div class="prodlist-i">
+                        <a class="list-img-carousel prodlist-i-img"><!-- NO SPACE --><img src="{{item.image[0]}}"
+                            alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+                        <div class="prodlist-i-props2">
+                          <h4>{{ item.name }}</h4>
+                          <div class="prodlist-i-txt">{{ item.description }}</div>
+                        </div>
+
+                        <ul class="prodlist-i-props2">
+                          <li><span class="prodlist-i-propttl"><span>id</span></span> <span
+                              class="prodlist-i-propval">{{item.id}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Tên</span></span> <span
+                              class="prodlist-i-propval">{{item.name}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Giá</span></span> <span
+                              class="prodlist-i-propval">{{item.price | currency:'VND'}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Tồn kho</span></span> <span
+                              class="prodlist-i-propval">{{item.stock}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Size</span></span> <span
+                              class="prodlist-i-propval">{{item.size}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Phong Cách</span></span> <span
+                              class="prodlist-i-propval">{{item.tags}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Xuất Xứ</span></span> <span
+                              class="prodlist-i-propval">{{item.origin}}</span></li>
+                          <li><span class="prodlist-i-propttl"><span>Chất Liệu</span></span> <span
+                              class="prodlist-i-propval">{{item.material}}</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div> <!-- end card-body-->
+    </div> <!-- end card-->
+  </div> <!-- end col -->
 </main>
