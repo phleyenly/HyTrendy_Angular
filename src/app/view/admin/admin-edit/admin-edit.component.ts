@@ -55,8 +55,7 @@ export class AdminEditComponent implements OnInit {
     this.SizeProduct = this.product.size.map(size => {
       return this.size.findIndex(s => s.name === size ) +1 
     })
-    
-    this.onchangeCategorySelect({id: this.product.categoryId});
+
    
   }
 
@@ -80,11 +79,12 @@ export class AdminEditComponent implements OnInit {
   }
 
   onchangeCategorySelect($event: any) {
-    this.product.categoryId = $event.id;
-    const category = this.categories.find((category)=> category.id === $event.id);
-    if(category) {
-      this.typeSelect = category.types.map(({id, name}) => ({id, name}));
-    }
+  this.product.categoryId = $event.id;
+  const category = this.categories.find((category)=> category.id === $event.id);
+  if(category) {
+    this.typeSelect = category.types.map(({id, name}) => ({id, name}));
+  }
+   
   }
 
   onchageTypeSelect($event: any) {

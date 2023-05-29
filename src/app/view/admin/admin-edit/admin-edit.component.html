@@ -74,7 +74,7 @@
                             <label for="thumbnail">Thể Loại</label>
                             <app-select-muti-module [multipe]="false" [optionItems]="categorySelect"
                                 (onChangeSelect)="onchangeCategorySelect($event)"
-                                [selectedValues]="product.categoryId"></app-select-muti-module>
+                                [selectedValues]="'Thời Trang Nam'"></app-select-muti-module>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label for="thumbnail">Loại</label>
                             <app-select-muti-module [multipe]="false" [optionItems]="typeSelect"
-                                (onChangeSelect)="onchageTypeSelect($event)" [selectedValues]="product.typeId"></app-select-muti-module>
+                                (onChangeSelect)="onchageTypeSelect($event)"></app-select-muti-module>
                         </div>
                     </div>
 
