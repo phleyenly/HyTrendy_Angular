@@ -6,28 +6,18 @@ import { SelectItem } from 'src/app/interface/select-item';
   templateUrl: './select-muti-module.component.html',
   styleUrls: ['./select-muti-module.component.scss']
 })
-export class SelectMutiModuleComponent implements OnInit  {
-  
-  
+export class SelectMutiModuleComponent implements OnInit {
   @Input() optionItems: SelectItem[] = [
     {id: -1, name: ''}
   ];
   @Input() multipe: boolean = true;
   @Output() onChangeSelect = new EventEmitter<any>();
   @Input() selectedValues: any ;
-  // @Input() selected: any[] = []
-
- 
-  
-
-  // @Input() selectTypeId: number = -1;
 
   ngOnInit(): void {
-   
-   
-  setTimeout(() => {
-    console.log(this.selectedValues)  
-  }, 5000);
+    setTimeout(() => {
+      console.log(this.selectedValues)  
+    }, 5000);
   }
   
   onChange(event: any[]) {
@@ -48,25 +38,20 @@ export class SelectMutiModuleComponent implements OnInit  {
 
   onTouched() {}
 
-  selectAllItems() {
-  }
+  // selectAllItems() {
+  // }
 
-  toggleCheckAll(values: any) {
-    // console.log(values)
-    if (values.currentTarget.checked) {
-      this.selectAllItems();
-    } else {
-      this.unselectAllItems();
-    }
-  }
+  // toggleCheckAll(values: any) {
+  //   // console.log(values)
+  //   if (values.currentTarget.checked) {
+  //     this.selectAllItems();
+  //   } else {
+  //     this.unselectAllItems();
+  //   }
+  // }
 
-  unselectAllItems() {
-    this.selectedValues = [];
-    this.onChange([]);
-  }
-  
-
-
-  
-
+  // unselectAllItems() {
+  //   this.selectedValues = [];
+  //   this.onChange([]);
+  // }
 }
