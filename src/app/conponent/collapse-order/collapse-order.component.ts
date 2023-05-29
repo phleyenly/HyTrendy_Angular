@@ -14,7 +14,7 @@ import { OrderService } from 'src/app/service/order.service';
 export class CollapseOrderComponent  implements OnInit{
   
   @Input("order") order: Order = {id: -1, status: "", date: new Date(), products: [], person: {id:-1, name: '', password:'', phone:'', role:'', username:'',address:''}}
-
+  
   isOpen: boolean = false;
 
   quantityProduct: number = 0;
@@ -31,6 +31,8 @@ export class CollapseOrderComponent  implements OnInit{
     {id: 3 , name: "Đang Giao Hàng" },
     {id: 4 , name: "Đã Nhận Hàng" },
   ];
+
+  idStatus : number = -1;
   constructor(
     private modalService: BsModalService,
     private orderService: OrderService) {}
@@ -44,6 +46,8 @@ export class CollapseOrderComponent  implements OnInit{
     this.quantityProduct = this.order.products.length;
     this.totalPrice();
     this.changeColorStatus();
+    this.checkIdStatus();
+    
 
 
     setTimeout(() => {
@@ -52,6 +56,15 @@ export class CollapseOrderComponent  implements OnInit{
     }, 5000);
       
     }
+
+  checkIdStatus() {
+    for(let item of this.listStatus) {
+      if(this.order.status === item.name) {
+        this.idStatus = item.id;
+      }
+    }
+  
+  }
 
   
   updateStatusOrderById(id: number, status: string) {
@@ -63,7 +76,14 @@ export class CollapseOrderComponent  implements OnInit{
 
   update() {
     this.updateStatusOrderById(this.order.id, this.order.status);
-    
+  }
+
+  deleteOrderById(id: number) { 
+    this.orderService.deleteOrderById(id).subscribe((m:any)=> {
+      alert(m.message);
+      location.reload();
+    })
+
 
   }
 

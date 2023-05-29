@@ -41,6 +41,7 @@ import { OrderComponent } from './view/order/order.component';
 import { CollapseOrderComponent } from './conponent/collapse-order/collapse-order.component';
 import { AdminOrderComponent } from './view/admin/admin-order/admin-order.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AccountComponent } from './view/account/account.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AdminAddAccountComponent,
     OrderComponent,
     CollapseOrderComponent,
-    AdminOrderComponent
+    AdminOrderComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
