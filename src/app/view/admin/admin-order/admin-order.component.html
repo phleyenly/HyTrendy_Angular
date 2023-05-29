@@ -1,34 +1,51 @@
-<h2 class="title1"> Tất Cả Đơn Đặt Hàng</h2>
-<ol class="breadcrumb mb-4 title2">
-    <li class="breadcrumb-item"><a >Trang chủ</a></li>
+<main class="container mh-583px">
+    <h1 class=" page-title"> Tất Cả Đơn Hàng</h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="prod-items section-items prod-tb">
+                <div class="row mb-2">
+                  <div class="col-sm-4">
+                    <div class="input-group mb-2 me-1">
+                    <input class="form-control" type="text" placeholder="Nhập tên..." aria-label="Nhập tên..."
+                        aria-describedby="btnNavbarSearch"/>
+                    <button class="btn btn-danger" id="btnNavbarSearch" type="button"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="text-sm-end d-flex flex-row float-end">
+                      <button type="button" class="btn btn-success mb-2">Xuất Báo Cáo</button>
+                    </div>
+                  </div><!-- end col-->
+                </div>
 
-    <li class="breadcrumb-item"> Tất Cả Đơn Đặt Hàng</li>
-</ol>
-<div class="prod-items section-items prod-tb">
+                <div class="prodtb-i">
+                    <div class="prodtb-i-top d-flex border-top">
+                        <div class="w-25">
+                            <h3 class="prodtb-i-ttl custom-text"><a>Tên Người Đặt Hàng</a></h3>
+                        </div>
+                        <div class="prodtb-i-style custom-text">
+                            <h3 class="size-text">Ngày Đặt Hàng</h3>
+                        </div>
+                        <div class="prodtb-i-style custom-text">
+                            <h3 class="size-text">Tổng số sản phẩm </h3>
+                        </div>
+                        <div class="prodtb-i-info">
+                            <span class="prodtb-i-price">
+                                <b>Tổng Tiền</b>
+                            </span>
+                        </div>
+                        <p class="prodtb-i-action size-text custom-text">
+                            <span>Trạng Thái Đơn Hàng </span>
+                        </p>
+                    </div>
+                </div>
 
-    <div class="prodtb-i">
-        <div class="prodtb-i-top d-flex">
-            <div class="w-25"><h3 class="prodtb-i-ttl custom-text" ><a >Tên Người Đặt Hàng</a></h3></div>
-            <div  class="prodtb-i-style custom-text" >
-                <h3 class="size-text">Ngày Đặt Hàng</h3>
+
+
+
+
+                <app-collapse-order *ngFor="let item of order" [order]="item"></app-collapse-order>
             </div>
-            <div class="prodtb-i-style custom-text">
-                <h3 class="size-text">Tổng số sản phẩm </h3>
-            </div>
-            <div class="prodtb-i-info" >
-                <span class="prodtb-i-price" >
-                    <b>Tổng Tiền</b>
-                </span>
-            </div>
-            <p class="prodtb-i-action size-text custom-text">
-                <span >Trạng Thái Đơn Hàng </span>
-            </p>
         </div>
     </div>
-
-
-
-
-
-    <app-collapse-order *ngFor="let item of order" [order]="item"></app-collapse-order>
-</div>
+</main>

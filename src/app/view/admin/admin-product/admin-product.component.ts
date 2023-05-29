@@ -18,8 +18,10 @@ export class AdminProductComponent implements OnInit {
     private route: ActivatedRoute){}
 
   ngOnInit(): void {
-   this.getAllProduct();
-   this.getByCategoryCodeAndType(this.categoryCode, this.typeCode)
+    this.getAllProduct();
+    if(this.categoryCode !== '' && this.typeCode !== '') {
+      this.getByCategoryCodeAndType(this.categoryCode, this.typeCode)
+    }
   }
 
   getAllProduct() {
@@ -40,6 +42,18 @@ export class AdminProductComponent implements OnInit {
       location.reload();
 
     })
+  }
 
+  openCollapse(i: any) {
+    const element = document.getElementById("p-"+i);
+    if (element) {
+      if (element.className === 'd-none') {
+        element.className = ''
+        console.log(element.className)
+      } else {
+        element.className = 'd-none'
+      }
+      // element.classList. = ['d-block'];
+    }
   }
 }

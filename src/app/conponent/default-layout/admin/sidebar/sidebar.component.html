@@ -1,43 +1,45 @@
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <a href="index.html" class="logo logo-light text-center">
+        <span class="logo-lg">
+            <img src="https://coderthemes.com/hyper_2/saas/assets/images/logo.png" alt="logo">
+        </span>
+        <span class="logo-sm">
+            <img src="https://coderthemes.com/hyper_2/saas/assets/images/logo-sm.png" alt="small logo">
+        </span>
+    </a>
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">Core</div>
+            <a class="nav-link" href="index.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Dashboard
+            </a>
+            <div class="sb-sidenav-menu-heading">Interface</div>
+            
+            <!-- dropdonw -->
+            <app-dropdown-admin [content]="contentRole" class="margin-space"></app-dropdown-admin>  
+    
+            <!-- dropdonw -->
 
+            <button type="button" class="btn btn-outline-primary button1 margin-space" >
+                Tất Cả Sản Phẩm
+            </button>
 
-    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-        <div class="sb-sidenav-menu">
-            <div class="nav">
-                <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="index.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Dashboard
-                </a>
-                <div class="sb-sidenav-menu-heading">Interface</div>
-                
-                <!-- dropdonw -->
-                <app-dropdown-admin [content]="contentRole" class="margin-space"></app-dropdown-admin>  
-        
-                <!-- dropdonw -->
+            <li *ngFor="let item of categories" class="margin-space"> 
+                <app-dropdown-category [category]="item"></app-dropdown-category>
+            </li> 
 
-                <button type="button" class="btn btn-outline-primary button1 margin-space" >
-                    Tất Cả Sản Phẩm
-                </button>
-
-                <li *ngFor="let item of categories" class="margin-space"> 
-                    <app-dropdown-category [category]="item"></app-dropdown-category>
-                </li> 
-
-                
-                <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="charts.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                    Charts
-                </a>
-                <a class="nav-link" href="tables.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    Tables
-                </a>
-            </div>
+            
+            <div class="sb-sidenav-menu-heading">Addons</div>
+            <a class="nav-link" href="charts.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Charts
+            </a>
+            <a class="nav-link" href="tables.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                Tables
+            </a>
         </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
-        </div>
-    </nav>
+    </div>
+</nav>
 

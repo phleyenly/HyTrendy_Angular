@@ -6,15 +6,15 @@
 
 <!-- <app-footer></app-footer> -->
 
-<body class="sb-nav-fixed" *ngIf="isAdminPage">
-    <app-header-admin></app-header-admin>
-    <div id="layoutSidenav">
+<body class="sb-nav-fixed admin-container" *ngIf="isAdminPage">
+    <div id="layoutSidenav" class="d-flex flex-column">
         <div id="layoutSidenav_nav">
-            <app-sidebar ></app-sidebar>
+            <app-sidebar></app-sidebar>
         </div>
-        <div id="layoutSidenav_content">
-            <router-outlet></router-outlet>
-            <app-footer-admin ></app-footer-admin>
+        <div id="layoutSidenav_content" class="bg-light">
+            <app-header-admin class="header-admin"></app-header-admin>
+            <router-outlet class="h-100"></router-outlet>
+            <app-footer-admin class="footer-admin"></app-footer-admin>
         </div>
     </div>
 </body>

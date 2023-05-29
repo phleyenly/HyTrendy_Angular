@@ -1,34 +1,34 @@
-<main class="container">
-    <table class="table table-bordered  ">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Tên</th>
-            <th scope="col">Username</th>
-            <th scope="col">Password</th>
-            <th scope="col">Số Điện Thoại</th>
-            <th scope="col">Địa Chỉ</th>
-            <th scope="col">Vai Trò</th>
-            <th scope="col">Tác Vụ</th>
-    
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of persons">
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.username}}</td>
-            <td>{{item.password}}</td>
-            <td>{{item.phone}}</td>
-            <td>{{item.address}}</td>
-            <td>{{item.role}}</td>
-            <td>
-              <span ><a href="/admin/account/edit/{{item.id}}"><i
-                  class="fa fa-pencil"></i> Sửa</a><br/> </span> 
-              <span (click)="deleteById(item.id)" > <i class="fa fa-trash"></i> Xóa</span>
-            </td>
-          </tr>
-          
-        </tbody>
-      </table>
-    </main>
+<main class="container mh-583px">
+  <h1 class=" page-title"> Tất Cả Tài Khoản</h1>
+  <table class="table table-bordered  ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Số Điện Thoại</th>
+        <th scope="col">Địa Chỉ</th>
+        <th scope="col">Vai Trò</th>
+        <th scope="col">Tác Vụ</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of persons">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.password}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.role}}</td>
+        <td>
+          <span><a href="/admin/account/edit/{{item.id}}"><i class="fa fa-pencil"></i> Sửa</a><br /> </span>
+          <span (click)="deleteById(item.id)"> <i class="fa fa-trash"></i> Xóa</span>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</main>

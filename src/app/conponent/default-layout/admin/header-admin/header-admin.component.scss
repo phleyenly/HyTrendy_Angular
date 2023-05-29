@@ -1,0 +1,50 @@
+.nav-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-menu-mobile {
+    border: none;
+    color: #313a46;
+    width: 60px;
+    background-color: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+}
+
+.rounded-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%!important;
+}
+
+.gap-1 {
+    gap: 0.375rem!important;
+}
+
+.account-user-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.avatar-dropdown {
+    width: 170px;
+    border: 1px solid #f9f0f0;
+    border-radius: unset;
+    text-decoration: none;
+    color: #313a46;
+}
+
+#button-alignment {
+    width: 169px;
+    border-radius: 5px;
+}
+
+.icon {
+    font-size: 25px;
+    color: #494b4c;
+}

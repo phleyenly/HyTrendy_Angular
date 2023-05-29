@@ -5,3 +5,17 @@
 .h-36px {
     height: 36px !important ;
 }
+
+.footer-admin {
+    background-color: #ffff;
+    border-top: 1px solid #ccc;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+}
+
+.header-admin {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
