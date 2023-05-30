@@ -32,6 +32,10 @@ export class PersonService {
     return this.http.get<Person>(`${baseUrl}/person/${id}`)
   }
 
+  findPersonByUsername() : Observable<Person> {
+    return this.http.get<Person>(`${baseUrl}/person/user`)
+  }
+
   updataPersonById(id: number, person: Person) : Observable <string> {
     return this.http.put<string>(`${baseUrl}/person/${id}`, person)
   
