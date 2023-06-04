@@ -40,7 +40,44 @@
     </div>
 </div>
 
-<ng-template #template>
+
+<ng-template #template >
+    <div class="modal-header" *ngIf="role === 'ADMIN'">
+      <h4 class="modal-title pull-left" id="my-modal-title">Cập Nhật Trạng Thái Đơn Hàng</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" *ngIf="role === 'ADMIN'">
+      <div id="my-modal-description">
+        Hãy tick chọn một trong các trạng thái sau:
+        <app-select-muti-module [multipe]="false" [optionItems]="listStatus" (onChangeSelect)="onchangeStatusSelectct($event)" [selectedValues]="idStatus"></app-select-muti-module>
+      </div>
+    </div>
+    <div class="modal-footer" *ngIf="role === 'ADMIN'">
+        <button type="button" class="btn btn-danger" (click)=" deleteOrderById(order.id)">Delete order</button>
+        <button type="button" class="btn btn-success" (click)="update()">Save Change</button>
+        <button type="button" class="btn btn-secondary" (click)="modalRef?.hide()">Close</button>
+    </div>
+
+    <div class="modal-header" *ngIf="role === 'CLIENT'">
+        <h4 class="modal-title pull-left" id="my-modal-title">Hủy Đơn Hàng</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body" *ngIf="role === 'CLIENT'">
+        <div id="my-modal-description">
+          Bạn chắc chắn muốn hủy đơn hàng này!
+        </div>
+      </div>
+      <div class="modal-footer" *ngIf="role === 'CLIENT'">
+          <button type="button" class="btn btn-danger" (click)=" deleteOrderById(order.id)">Delete order</button>
+      </div>
+</ng-template>
+
+<!-- <ng-template #template *ngIf="role === 'CLIENT'">
     <div class="modal-header">
       <h4 class="modal-title pull-left" id="my-modal-title">Cập Nhật Trạng Thái Đơn Hàng</h4>
       <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
@@ -58,4 +95,4 @@
         <button type="button" class="btn btn-success" (click)="update()">Save Change</button>
         <button type="button" class="btn btn-secondary" (click)="modalRef?.hide()">Close</button>
     </div>
-  </ng-template>
+</ng-template> -->

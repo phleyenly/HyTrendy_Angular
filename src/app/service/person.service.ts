@@ -48,6 +48,11 @@ export class PersonService {
     return this.http.delete<string>(`${baseUrl}/person/${id}`)
   }
 
+  checkPassword(password : String): Observable<string> {
+    return this.http.post<string>(`${baseUrl}/person/password` , password)
+
+  }
+
 }
 
 

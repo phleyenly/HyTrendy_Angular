@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Person } from 'src/app/interface/person';
 import { PersonService } from 'src/app/service/person.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Order } from 'src/app/interface/order';
+import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-account',
@@ -18,21 +21,64 @@ export class AccountComponent implements OnInit {
   check5: string = '';
   check6: string = '';
   person: Person = {id:-1, name: '', password:'', phone:'', role:'', username:'',address:''};
+  order: Order[] =[];
+
+  modalRef?: BsModalRef;
+  password: string = ''
 
   constructor(
     private personService: PersonService,
+    private modalService: BsModalService,
+    private orderService: OrderService,
   ){}
 
    ngOnInit(): void {
     this.isOpen1();
-    this.findPersonByUsername()
+    this.findPersonByUsername();
+    this.findOrderOfUser();
 
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  checkPassword() {
+    this.personService.checkPassword(this.password).subscribe((m: any) => {
+      alert(m.message)
+    })
   }
 
   findPersonByUsername() {
     this.personService.findPersonByUsername().subscribe((p: Person) => {
       this.person = p
 
+    })
+  }
+
+  updatePerson() {
+    this.personService.checkPassword(this.password).subscribe((m: any) => {
+      if(m.message ==="OK") {
+        this.modalRef?.hide();
+        this.personService.updataPersonById(this.person.id, this.person).subscribe((n: any) => {
+          alert(n.message);
+          this.findPersonByUsername()
+        })
+      } else {
+        alert(m.message);
+      }
+    })
+    this.password = '';
+  }
+
+  cancel() {
+    // location.reload();
+    this.findPersonByUsername();
+  }
+
+  findOrderOfUser() {
+    this.orderService.findOrderOfUser().subscribe((o: Order[]) => {
+      this.order = o;
     })
   }
 

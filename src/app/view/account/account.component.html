@@ -17,21 +17,21 @@
 						</a>
 
 						<a class="nav-link" [ngClass]="check6" id="account-tab" data-toggle="pill"  role="tab" aria-controls="account" aria-selected="false" (click)="isOpen6()">
-							<i class="far fa-pen-square"></i>
+							<i class="fa fa-edit"></i>
 							Thay đổi thông tin
 						</a>
 
 						<a class="nav-link" [ngClass]="check2" id="password-tab" data-toggle="pill"  role="tab" aria-controls="password" aria-selected="false" (click)="isOpen2()">
 							<i class="fa fa-key text-center mr-1"></i> 
-							Password
+							Thay đổi mật khẩu
 						</a>
 						<a class="nav-link" [ngClass]="check3" id="security-tab" data-toggle="pill"  role="tab" aria-controls="security" aria-selected="false" (click)="isOpen3()" >
 							<i class="fa fa-user text-center mr-1"></i> 
-							Security
+							Bảo vệ tài khoản
 						</a>
 						<a class="nav-link" [ngClass]="check4" id="application-tab" data-toggle="pill"  role="tab" aria-controls="application" aria-selected="false" (click)="isOpen4()">
 							<i class="fa fa-tv text-center mr-1"></i> 
-							Application
+							Nhật kí mua hàng
 						</a>
 						<a class="nav-link " [ngClass]="check5" id="notification-tab" data-toggle="pill"  role="tab" aria-controls="notification" aria-selected="false" (click)="isOpen5()" >
 							<i class="fa fa-bell text-center mr-1"></i> 
@@ -59,13 +59,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Username</label>
-								  	<input type="text" class="form-control" value="{{person.username}}">
+								  	<input type="text" class="form-control" value="{{person.username}}" disabled> 
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Password</label>
-								  	<input type="text" class="form-control" value="{{person.password}}">
+								  	<input type="password" class="form-control" value="{{person.password}}" readonly>
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -74,6 +74,46 @@
 									<textarea class="form-control" rows="4">{{person.address}}</textarea>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" [ngClass]="check6" id="editAccount" role="tabpanel" aria-labelledby="account-tab"  >
+						<h3 class="mb-4">Chỉnh sửa tài khoản</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Tên</label>
+								  	<input type="text" class="form-control" value="{{person.name}}" [(ngModel)]="person.name" name="name">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Số Điện Thoại</label>
+								  	<input type="text" class="form-control" value="{{person.phone}}" [(ngModel)]="person.phone" name="phone">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Username</label>
+								  	<input type="text" class="form-control" value="{{person.username}}" [(ngModel)]="person.username" name="username" disabled>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Password</label>
+								  	<input type="password" class="form-control" value="{{person.password}}" readonly >
+									  
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+								  	<label>Địa Chỉ</label>
+									<textarea class="form-control" rows="4" [(ngModel)]="person.address" name="address"></textarea>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-success custom-margin" (click)="openModal(template)">Update</button>
+							<button class="btn btn-secondary" (click)="cancel()">Cancel</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" [ngClass]="check2" id="password" role="tabpanel" aria-labelledby="password-tab"  >
@@ -137,29 +177,38 @@
 						</div>
 					</div>
 					<div class="tab-pane fade" [ngClass]="check4" id="application" role="tabpanel" aria-labelledby="application-tab" >
-						<h3 class="mb-4">Application Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="app-check">
-										<label class="form-check-label" for="app-check">
-										App check
-										</label>
+						<h3 class="mb-4">Tất cả đơn hàng</h3>
+						<div class="card">
+							<div class="card-body">
+								<div class="prod-items section-items prod-tb">
+									
+									<div class="prodtb-i">
+										<div class="prodtb-i-top d-flex border-top">
+											<div class="w-25">
+												<h3 class="prodtb-i-ttl custom-text"><a>Tên Người Đặt Hàng</a></h3>
+											</div>
+											<div class="prodtb-i-style custom-text">
+												<h3 class="size-text">Ngày Đặt Hàng</h3>
+											</div>
+											<div class="prodtb-i-style custom-text">
+												<h3 class="size-text">Tổng số sản phẩm </h3>
+											</div>
+											<div class="prodtb-i-info">
+												<span class="prodtb-i-price">
+													<b>Tổng Tiền</b>
+												</span>
+											</div>
+											<p class="prodtb-i-action size-text custom-text">
+												<span>Trạng Thái Đơn Hàng </span>
+											</p>
+										</div>
 									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-										<label class="form-check-label" for="defaultCheck2">
-										Lorem ipsum dolor sit.
-										</label>
-									</div>
+									
+									<app-collapse-order *ngFor="let item of order" [order]="item" [role]="'CLIENT'"></app-collapse-order>
 								</div>
 							</div>
 						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
+						
 					</div>
 					<div class="tab-pane fade" [ngClass]="check5" id="notification" role="tabpanel" aria-labelledby="notification-tab"  > 
 						<h3 class="mb-4">Notification Settings</h3>
@@ -192,47 +241,26 @@
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
-					<div class="tab-pane fade" [ngClass]="check6" id="editAccount" role="tabpanel" aria-labelledby="account-tab"  >
-						<h3 class="mb-4">Chỉnh sửa tài khoản</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Tên</label>
-								  	<input type="text" class="form-control" value="{{person.name}}">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Số Điện Thoại</label>
-								  	<input type="text" class="form-control" value="{{person.phone}}">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Username</label>
-								  	<input type="text" class="form-control" value="{{person.username}}">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Password</label>
-								  	<input type="text" class="form-control" value="{{person.password}}">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-								  	<label>Địa Chỉ</label>
-									<textarea class="form-control" rows="4">{{person.address}}</textarea>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</section>
 </body>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left" id="my-modal-title">Vui lòng xác nhận lại mật khẩu</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div id="my-modal-description">
+		<input type="password" class="form-control" [(ngModel)]="password" name="passwordCheck">
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="updatePerson()">Enter</button>
+    </div>
+  </ng-template>

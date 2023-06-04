@@ -15,6 +15,8 @@ export class CollapseOrderComponent  implements OnInit{
   
   @Input("order") order: Order = {id: -1, status: "", date: new Date(), products: [], person: {id:-1, name: '', password:'', phone:'', role:'', username:'',address:''}}
   
+  @Input("role") role: string = '';
+  
   isOpen: boolean = false;
 
   quantityProduct: number = 0;
@@ -79,13 +81,30 @@ export class CollapseOrderComponent  implements OnInit{
   }
 
   deleteOrderById(id: number) { 
-    this.orderService.deleteOrderById(id).subscribe((m:any)=> {
+    if(this.role === "ADMIN") {
+      this.orderService.deleteOrderById(id).subscribe((m:any)=> {
       alert(m.message);
       location.reload();
-    })
+      })
+    } else if (this.role === "CLIENT") {
+      if(this.order.status === "Chờ Xác Nhận") {
+        this.orderService.deleteOrderById(id).subscribe((m:any)=> {
+          alert(m.message);
+          location.reload();
+        })
+      } else {
+        alert("Đơn hàng này không thể hủy")
+      }
+    }
+    
+    
 
 
-  }
+    }
+    
+
+
+  
 
   onchangeStatusSelectct($event: any) {
     this.order.status = $event.name;

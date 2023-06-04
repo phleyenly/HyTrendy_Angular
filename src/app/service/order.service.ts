@@ -21,6 +21,10 @@ export class OrderService {
     return this.http.get<Order[]>(`${baseUrl}/order`)
   }
 
+  findOrderOfUser() : Observable<Order[]> {
+    return this.http.get<Order[]>(`${baseUrl}/user/order`)
+  }
+
   updateStatusOrderById(id: number, status: string): Observable<string> {
     return this.http.put<string>(`${baseUrl}/order`, {id, status});
   }
