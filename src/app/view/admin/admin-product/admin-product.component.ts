@@ -25,7 +25,7 @@ export class AdminProductComponent implements OnInit {
   }
 
   getAllProduct() {
-    this.productService.getAllProduct().subscribe((p: Product[]) => {
+    this.productService.getAllProduct(1, 4).subscribe((p: Product[]) => {
       this.products = p;
     })
   }

@@ -42,6 +42,7 @@ import { CollapseOrderComponent } from './conponent/collapse-order/collapse-orde
 import { AdminOrderComponent } from './view/admin/admin-order/admin-order.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccountComponent } from './view/account/account.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { AccountComponent } from './view/account/account.component';
     FormsModule,
     NgSelectModule,
     ModalModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [ 
     {

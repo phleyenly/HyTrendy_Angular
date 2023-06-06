@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { Category } from 'src/app/interface/category';
 import { Product } from 'src/app/interface/product';
 import { CategoryService } from 'src/app/service/category.service';
@@ -17,8 +18,12 @@ export class ProductsComponent implements OnInit {
   category: Category = {id: 0, name: '', code:'', types:[]};
   title: string[] = [];
   types: string = "";
-  categoryCode = this.route.snapshot.queryParamMap.get('categoryCode') 
-  typeCode = this.route.snapshot.queryParamMap.get('typeCode')
+  categoryCode = this.route.snapshot.queryParamMap.get('categoryCode');
+  typeCode = this.route.snapshot.queryParamMap.get('typeCode');
+  totalItems : number = 0;
+  currentPage = 1;
+  maxSize = 5;
+  limit: number = 3;
    
   constructor( 
     private productService: ProductService ,
@@ -29,7 +34,7 @@ export class ProductsComponent implements OnInit {
 
   async ngOnInit()  {
     if(this.categoryCode == null && this.typeCode == null) {
-      this.getAllProduct()
+      this.getAllProduct(this.currentPage, this.limit)
       this.title.push("Tất cả sản phẩm")
     } else {
       const category = this.categoryCode || '';
@@ -41,11 +46,26 @@ export class ProductsComponent implements OnInit {
       await this.getTypeByCode(category, type);
       this.title.push(this.types);
     }
+
+    this.countProduct();
     
   }
 
-  getAllProduct() {
-    this.productService.getAllProduct().subscribe((p: Product[]) => {
+  // setPage(pageNo: number): void {
+  //   this.currentPage = pageNo;
+   
+  // }
+
+  pageChanged(event: PageChangedEvent): void {
+    this.currentPage = event.page;
+    if(this.categoryCode == null && this.typeCode == null) {
+      this.getAllProduct(this.currentPage, this.limit)
+    }
+    
+  }
+
+  getAllProduct(page: number, limit: number) {
+    this.productService.getAllProduct(page, limit).subscribe((p: Product[]) => {
       this.products = p;
     })
   }
@@ -62,5 +82,11 @@ export class ProductsComponent implements OnInit {
 
   async getTypeByCode(categoryCode: string, typeCode: string) {
     this.types = await this.typeService.getTypeByCode(categoryCode, typeCode).toPromise();
+  }
+
+  countProduct() {
+    this.productService.countProduct().subscribe((m: number) => {
+      this.totalItems = m;
+    })
   }
 }

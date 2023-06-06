@@ -12,8 +12,8 @@ export class ProductService {
 
   constructor( private http: HttpClient) { }
 
-  getAllProduct(): Observable <Product[]> {
-    return this.http.get<Product[]>(baseUrl)
+  getAllProduct(page: number, limit: number): Observable <Product[]> {
+    return this.http.get<Product[]>(`${baseUrl}?page=${page}&limit=${limit}`)
   }
 
   getByCategoryAndType( categoryCode : string ,  typeCode : string): Observable< Product[]> {
@@ -36,5 +36,9 @@ export class ProductService {
 
   deleteProduct (id: number) : Observable <string> {
     return this.http.delete<string> (baseUrl, {body: id})
+  }
+
+  countProduct(): Observable<number> {
+    return this.http.get<number>(`${baseUrl}/count`)
   }
 }

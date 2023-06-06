@@ -34,7 +34,7 @@ export class HomeProductsComponent {
   }
   
   getAllProduct(): any{
-    this.productService.getAllProduct().subscribe((p:any) => {
+    this.productService.getAllProduct(1, 20).subscribe((p:any) => {
       this.products = p;
     })
 
