@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 import { Login } from 'src/app/interface/authentication';
 import { LoginData } from 'src/app/interface/loginData';
 import { AuthenticationService } from 'src/app/service/authentication.service';
@@ -11,7 +12,9 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 export class LoginComponent {
   auth: Login = {username: "", password: ""};
 
-  constructor(private authentication: AuthenticationService) { }
+  constructor(
+    private authentication: AuthenticationService,
+    private notifier: NotifierService) { }
 
 
   login() {
@@ -21,7 +24,8 @@ export class LoginComponent {
         console.log(data.role)
         console.log(data)
         sessionStorage.setItem('token', data.token);
-        alert("Đăng Nhập Thành Công")
+        // alert("Đăng Nhập Thành Công")
+        this.notifier.notify('success', 'Đăng Nhập Thành Công');
         switch (data.role) {
           case "ADMIN" :
 
@@ -35,7 +39,8 @@ export class LoginComponent {
         }
       }, 
       (err) => {
-        alert(err.error)
+        // alert(err.error)
+        this.notifier.notify('error', err.error);
       }
     )
   }

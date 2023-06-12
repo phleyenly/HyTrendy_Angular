@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 import { InforCreateCart } from 'src/app/interface/infor-create-cart';
 import { Product } from 'src/app/interface/product';
 import { CartService } from 'src/app/service/cart.service';
@@ -14,7 +15,8 @@ export class ProductCardComponent {
   cart: InforCreateCart = {id: -1, quantity: 1, size: 'M'};
   
   constructor( 
-    private cartService: CartService) {}
+    private cartService: CartService,
+    private notifier: NotifierService) {}
 
   up() {
     if(this.quantity<10) {
@@ -38,10 +40,16 @@ export class ProductCardComponent {
     this.cart.quantity= this.quantity;
     this.cartService.createCart(this.cart).subscribe(
       (m: any)=>{
-        alert(m.message);
+        // alert(m.message);
+        this.notifier.notify('success', m.message)
       }, (err) => {
-        alert("Bạn Cần Đăng Nhập");
-        window.location.href = '/login';
+        // alert("Bạn Cần Đăng Nhập");
+        this.notifier.notify('error', 'Bạn Cần Đăng Nhập');
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 3000);
+
+        
 
     })
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { Category } from 'src/app/interface/category';
 import { InforCreateCart } from 'src/app/interface/infor-create-cart';
 import { Product } from 'src/app/interface/product';
@@ -28,7 +29,8 @@ export class ProductDetailComponent implements OnInit {
     private typeService: TypeService,
     private categoryService: CategoryService,
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private notifier: NotifierService
 ){}
   async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id') ;
@@ -91,7 +93,8 @@ export class ProductDetailComponent implements OnInit {
     this.cart.id = this.product.id;
     this.cart.quantity = this.quantity;
     this.cartService.createCart(this.cart).subscribe((m: any) => {
-      alert(m.message)
+      // alert(m.message)
+      this.notifier.notify('success', m.message);
     })
   }
 

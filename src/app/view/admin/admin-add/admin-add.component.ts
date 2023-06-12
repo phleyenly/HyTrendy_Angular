@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { Category } from 'src/app/interface/category';
 import { Product } from 'src/app/interface/product';
 import { SelectItem } from 'src/app/interface/select-item';
@@ -26,7 +28,9 @@ export class AdminAddComponent {
   constructor(
     private productService: ProductService,
    
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+
+    private notifier: NotifierService
   ){}
 
   async ngOnInit() {
@@ -85,7 +89,8 @@ export class AdminAddComponent {
 
 createProduct() {
   this.productService.createProduct(this.product).subscribe((m: any) => {
-    alert(m.message)
+    // alert(m.message)
+    this.notifier.notify('success', m.message);
   })
 }
 

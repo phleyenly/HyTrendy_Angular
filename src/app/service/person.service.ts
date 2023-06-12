@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../interface/person';
+import { ChangePasswordData } from '../interface/change-password-data';
 
 const baseUrl = "http://localhost:8080/api";
 @Injectable({
@@ -50,7 +51,10 @@ export class PersonService {
 
   checkPassword(password : String): Observable<string> {
     return this.http.post<string>(`${baseUrl}/person/password` , password)
+  }
 
+  changePassword(p: ChangePasswordData): Observable<string> {
+    return this.http.put<string>(`${baseUrl}/person/password` , p)
   }
 
 }

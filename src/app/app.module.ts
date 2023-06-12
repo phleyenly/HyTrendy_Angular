@@ -43,6 +43,48 @@ import { AdminOrderComponent } from './view/admin/admin-order/admin-order.compon
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccountComponent } from './view/account/account.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12,
+    },
+    vertical: {
+      position: 'top',
+      distance: 12,
+      gap: 10,
+    },
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4,
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease',
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50,
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease',
+    },
+    overlap: 150,
+  },
+};
 
 
 @NgModule({
@@ -91,6 +133,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     NgSelectModule,
     ModalModule.forRoot(),
     PaginationModule.forRoot(),
+    NotifierModule.withConfig(customNotifierOptions),
   ],
   providers: [ 
     {

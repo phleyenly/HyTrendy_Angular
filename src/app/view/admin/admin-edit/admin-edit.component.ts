@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { async } from 'rxjs';
 import { Category } from 'src/app/interface/category';
 import { Product } from 'src/app/interface/product';
@@ -32,7 +33,8 @@ export class AdminEditComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private notifier: NotifierService
   ){}
 
   async ngOnInit() {
@@ -68,7 +70,8 @@ export class AdminEditComponent implements OnInit {
     const idNumber = parseInt(this.id);
     // console.log(this.product)
     this.productService.updatedById(idNumber, this.product).subscribe((m: any) =>{
-      alert(m.message);
+      // alert(m.message);
+      this.notifier.notify('success', m.message);
     })
   }
 

@@ -8,7 +8,7 @@
 						<div class="img-circle text-center mb-3">
 							<img src="assets/account/img/user2.jpg" alt="Image" class="shadow">
 						</div>
-						<h4 class="text-center">Kiran Acharya</h4>
+						<h4 class="text-center">{{person.name}}</h4>
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link" [ngClass]="check1" id="account-tab" data-toggle="pill"  role="tab" aria-controls="account" aria-selected="false" (click)="isOpen1()">
@@ -36,6 +36,10 @@
 						<a class="nav-link " [ngClass]="check5" id="notification-tab" data-toggle="pill"  role="tab" aria-controls="notification" aria-selected="false" (click)="isOpen5()" >
 							<i class="fa fa-bell text-center mr-1"></i> 
 							Notification
+						</a>
+						<a class="nav-link " [ngClass]="check7" id="notification-tab" data-toggle="pill"  role="tab" aria-controls="notification" aria-selected="false" (click)="isOpen7()" >
+							<i class="fa fa-sign-out text-center mr-1"></i> 
+							Đăng Xuất
 						</a>
 						
 					</div>
@@ -122,7 +126,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Old password</label>
-								  	<input type="password" class="form-control">
+								  	<input type="password" class="form-control" [(ngModel)]="passwordData.oldPassword" name="oldPassword">
 								</div>
 							</div>
 						</div>
@@ -130,18 +134,18 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>New password</label>
-								  	<input type="password" class="form-control">
+								  	<input type="password" class="form-control" [(ngModel)]="passwordData.newPassword" name="newPassword">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Confirm new password</label>
-								  	<input type="password" class="form-control">
+								  	<input type="password" class="form-control" [(ngModel)]="passwordData.confirmPassword" name="confirmPassword">
 								</div>
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-primary" (click)="changePassword()">Update</button>
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>

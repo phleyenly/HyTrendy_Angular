@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 import { Person } from 'src/app/interface/person';
 import { SelectItem } from 'src/app/interface/select-item';
 import { PersonService } from 'src/app/service/person.service';
@@ -14,7 +15,8 @@ export class AdminAddAccountComponent implements OnInit {
   roleSelect: SelectItem[]=[];
 
   constructor( 
-    private personService: PersonService) {}
+    private personService: PersonService,
+    private notifier: NotifierService) {}
 
   async ngOnInit() {
     await this.getRole();
@@ -34,7 +36,9 @@ export class AdminAddAccountComponent implements OnInit {
 
   createPerson() {
     this.personService.createPerson(this.person).subscribe((m: any) => {
-      alert(m.message);
+      // alert(m.message);
+      this.notifier.notify('success', m.message);
+
     })
   }
 

@@ -36,9 +36,6 @@ const routes: Routes = [
   { path: 'admin/account/create' , component: AdminAddAccountComponent, canActivate: [AuthGuard]},
   { path: 'admin/order' , component: AdminOrderComponent, canActivate: [AuthGuard]},
 
-
-  
-
   { path: '**', component: ErrorComponent }
 ];
 

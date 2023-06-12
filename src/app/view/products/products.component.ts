@@ -61,7 +61,6 @@ export class ProductsComponent implements OnInit {
     if(this.categoryCode == null && this.typeCode == null) {
       this.getAllProduct(this.currentPage, this.limit)
     }
-    
   }
 
   getAllProduct(page: number, limit: number) {

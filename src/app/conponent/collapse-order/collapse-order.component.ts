@@ -4,6 +4,7 @@ import { Order } from 'src/app/interface/order';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SelectItem } from 'src/app/interface/select-item';
 import { OrderService } from 'src/app/service/order.service';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -37,7 +38,8 @@ export class CollapseOrderComponent  implements OnInit{
   idStatus : number = -1;
   constructor(
     private modalService: BsModalService,
-    private orderService: OrderService) {}
+    private orderService: OrderService,
+    private notifier: NotifierService) {}
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -71,8 +73,12 @@ export class CollapseOrderComponent  implements OnInit{
   
   updateStatusOrderById(id: number, status: string) {
     this.orderService.updateStatusOrderById(id, status).subscribe((m: any) => {
-      alert(m.message);
-      location.reload();
+      // alert(m.message);
+      this.notifier.notify('success', m.message);
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+      
     }) 
   }
 
@@ -83,17 +89,26 @@ export class CollapseOrderComponent  implements OnInit{
   deleteOrderById(id: number) { 
     if(this.role === "ADMIN") {
       this.orderService.deleteOrderById(id).subscribe((m:any)=> {
-      alert(m.message);
-      location.reload();
+      // alert(m.message);
+      this.notifier.notify('success', m.message);
+      setTimeout(() => {
+         location.reload();
+      }, 2000);
+     
       })
     } else if (this.role === "CLIENT") {
       if(this.order.status === "Chờ Xác Nhận") {
         this.orderService.deleteOrderById(id).subscribe((m:any)=> {
-          alert(m.message);
-          location.reload();
+          // alert(m.message);
+          this.notifier.notify('success', m.message);
+          setTimeout(() => {
+            location.reload();
+         }, 2000);
         })
       } else {
-        alert("Đơn hàng này không thể hủy")
+        // alert("Đơn hàng này không thể hủy")
+        this.notifier.notify('success', 'Đơn hàng này không thể hủy');
+
       }
     }
     

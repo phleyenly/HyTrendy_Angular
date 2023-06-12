@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { Person } from 'src/app/interface/person';
 import { SelectItem } from 'src/app/interface/select-item';
 import { PersonService } from 'src/app/service/person.service';
@@ -19,7 +20,8 @@ export class AdminEditAccountComponent  implements OnInit{
 
   constructor( 
     private personService: PersonService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private notifier: NotifierService) {}
 
   async ngOnInit() {
     this.getPersonById(this.idNumber);
@@ -55,7 +57,8 @@ async  getRole() {
 
   updatePersonById() {
     this.personService.updataPersonById(this.idNumber, this.person).subscribe((m: any) => {
-      alert(m.message);
+      // alert(m.message);
+      this.notifier.notify('success', m.message);
     })
   }
 

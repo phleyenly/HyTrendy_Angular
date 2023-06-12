@@ -4,6 +4,8 @@ import { PersonService } from 'src/app/service/person.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Order } from 'src/app/interface/order';
 import { OrderService } from 'src/app/service/order.service';
+import { NotifierService } from 'angular-notifier';
+import { ChangePasswordData } from 'src/app/interface/change-password-data';
 
 @Component({
   selector: 'app-account',
@@ -20,8 +22,10 @@ export class AccountComponent implements OnInit {
   check4: string = '';
   check5: string = '';
   check6: string = '';
+  check7: string = '';
   person: Person = {id:-1, name: '', password:'', phone:'', role:'', username:'',address:''};
   order: Order[] =[];
+  passwordData: ChangePasswordData = {oldPassword: '', newPassword: '', confirmPassword: ''}
 
   modalRef?: BsModalRef;
   password: string = ''
@@ -30,6 +34,7 @@ export class AccountComponent implements OnInit {
     private personService: PersonService,
     private modalService: BsModalService,
     private orderService: OrderService,
+    private notifier: NotifierService
   ){}
 
    ngOnInit(): void {
@@ -45,7 +50,19 @@ export class AccountComponent implements OnInit {
 
   checkPassword() {
     this.personService.checkPassword(this.password).subscribe((m: any) => {
-      alert(m.message)
+      // alert(m.message)
+      this.notifier.notify('success', m.message);
+    })
+  }
+
+  changePassword() {
+    this.personService.changePassword(this.passwordData).subscribe((m:any) => {
+      // this.notifier.notify('success', m.message);
+      if(m.message === "Thay đổi Mật Khẩu Thành Công") {
+        this.notifier.notify('success', m.message);
+      } else {
+        this.notifier.notify('error', m.message);
+      }
     })
   }
 
@@ -61,11 +78,14 @@ export class AccountComponent implements OnInit {
       if(m.message ==="OK") {
         this.modalRef?.hide();
         this.personService.updataPersonById(this.person.id, this.person).subscribe((n: any) => {
-          alert(n.message);
+          // alert(n.message);
+          this.notifier.notify('success', n.message);
           this.findPersonByUsername()
         })
       } else {
-        alert(m.message);
+        // alert(m.message);
+        this.notifier.notify('error', m.message);
+
       }
     })
     this.password = '';
@@ -89,6 +109,7 @@ export class AccountComponent implements OnInit {
     this.check4 = '';
     this.check5 = '';
     this.check6 = '';
+    this.check7 = '';
   }
 
   isOpen2() {
@@ -98,6 +119,7 @@ export class AccountComponent implements OnInit {
     this.check4 = '';
     this.check5 = '';
     this.check6 = '';
+    this.check7 = '';
   }
 
   isOpen3() {
@@ -107,6 +129,7 @@ export class AccountComponent implements OnInit {
     this.check4 = '';
     this.check5 = '';
     this.check6 = '';
+    this.check7 = '';
   }
 
   isOpen4() {
@@ -116,6 +139,7 @@ export class AccountComponent implements OnInit {
     this.check4 = 'active show';
     this.check5 = '';
     this.check6 = '';
+    this.check7 = '';
   }
 
   isOpen5() {
@@ -125,6 +149,7 @@ export class AccountComponent implements OnInit {
     this.check4 = '';
     this.check5 = 'active show';
     this.check6 = '';
+    this.check7 = '';
   }
 
   isOpen6() {
@@ -134,6 +159,19 @@ export class AccountComponent implements OnInit {
     this.check4 = '';
     this.check5 = '';
     this.check6 = 'active show';
+    this.check7 = '';
+  }
+
+  isOpen7() {
+    this.check1 = "";
+    this.check2 = '';
+    this.check3 = '';
+    this.check4 = '';
+    this.check5 = '';
+    this.check6 = '';
+    this.check7 = 'active show';
+    sessionStorage.clear();
+    window.location.href = '/login'
   }
 
 }

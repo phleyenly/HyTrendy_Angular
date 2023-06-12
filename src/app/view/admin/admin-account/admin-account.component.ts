@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { Person } from 'src/app/interface/person';
 import { PersonService } from 'src/app/service/person.service';
 
@@ -15,7 +16,9 @@ export class AdminAccountComponent implements OnInit{
 
   constructor( 
     private personService: PersonService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private notifier: NotifierService
+    ) {}
 
   ngOnInit(): void {
     if(this.role === '' || this.role==='Tất cả người dùng') {
@@ -41,8 +44,12 @@ export class AdminAccountComponent implements OnInit{
   
   deleteById(id: number) {
     this.personService.deleteById(id).subscribe((m:any)=> {
-      alert(m.message);
-      location.reload();
+      // alert(m.message);
+      this.notifier.notify('error', m.message);
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+      
     })
   }
 }

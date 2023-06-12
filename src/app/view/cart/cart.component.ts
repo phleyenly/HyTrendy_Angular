@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 import { Cart } from 'src/app/interface/cart';
 import { CartService } from 'src/app/service/cart.service';
 import { OrderService } from 'src/app/service/order.service';
@@ -14,7 +15,8 @@ export class CartComponent implements OnInit  {
 
   constructor(
     private cartService: CartService,
-    private orderService: OrderService){}
+    private orderService: OrderService,
+    private notifier: NotifierService){}
 
 async  ngOnInit() {
   await  this.getCart(); 
@@ -75,7 +77,8 @@ async  getCart() {
 
   createOrder() {
     this.orderService.createOrder().subscribe((m:any)=>{
-      alert(m.message);
+      // alert(m.message);
+      this.notifier.notify('success', m.message);
       this.cart = [];
       this.totalPrice();
     })
