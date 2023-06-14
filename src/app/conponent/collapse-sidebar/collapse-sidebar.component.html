@@ -1,0 +1,16 @@
+<a type="button" class="nav-link collapsed"
+    (click)="onExpand()"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseBasic"
+    *ngIf="collapseSidebar != []">
+        <div class="sb-nav-link-icon" *ngIf="icon !== ''"><i [ngClass]="icon"></i></div>
+        {{title}}
+        <div class="sb-sidenav-collapse-arrow"><i [ngClass]="iconExpand"></i></div>
+</a>
+<div id="collapseBasic{{id}}" [collapse]="isCollapsed" class="collapse">
+    <nav class="sb-sidenav-menu-nested nav">
+        <a class="nav-link" href="#" *ngIf="hasAll">Tất Cả {{title}}</a>
+        <a class="nav-link" href="#" *ngFor="let item of collapseSidebar">{{item.name}}</a>
+        <a class="nav-link" href="#" *ngIf="hasAdd">Thêm {{title}}</a>
+    </nav>
+</div>

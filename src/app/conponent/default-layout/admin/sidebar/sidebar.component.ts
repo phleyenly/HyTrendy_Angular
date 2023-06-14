@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CollapseSidebarItem, CollapseSidebarL2Item } from 'src/app/interface/Collapse-Sidear';
 import { Category } from 'src/app/interface/category';
 import { Content } from 'src/app/interface/content';
 import { CategoryService } from 'src/app/service/category.service';
@@ -9,24 +10,62 @@ import { PersonService } from 'src/app/service/person.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit{
-  
-  role: string[] =['Tất cả người dùng'];
-  contentRole: Content = {title: "", selectItem: []};
-  categories: Category[]= [];
-  constructor(private personService: PersonService,
-    private categoryService: CategoryService ){}
+export class SidebarComponent implements OnInit {
+  status: string[] = [
+    "Chờ Xác Nhận" ,
+    "Chờ Lấy Hàng" ,
+    "Đang Giao Hàng" ,
+    "Đã Nhận Hàng" ,
+  ];
+  role: string[] = [];
+  contentRole: Content = { title: "", selectItem: [] };
+  categories: Category[] = [];
+  productCollapse: CollapseSidebarL2Item[] = [];
+  acccountCollapse: CollapseSidebarItem[] = [];
+  orderCollapse: CollapseSidebarItem[] = [];
 
- async ngOnInit() {
+  constructor(private personService: PersonService,
+    private categoryService: CategoryService) { }
+
+  async ngOnInit() {
     await this.getRole();
     this.contentRole.title = 'Người Dùng';
     this.contentRole.selectItem = this.role;
 
-    this.getAllCategory();
-      
-    }
+    await this.getAllCategory();
 
- async getRole() {
+    this.productCollapse = this.categories.map(item => {
+      return {
+        id: item.id, 
+        name: item.name, 
+        items: item.types.map(it => {
+          return {
+            id: it.id,
+            name: it.name,
+            link: it.code
+          };
+        })
+      };
+    });
+
+    this.acccountCollapse = this.role.map((item, i) => {
+      return {
+        id: i,
+        name: item,
+        link: item
+      };
+    });
+
+    this.orderCollapse = this.status.map((item, i) => {
+      return {
+        id: i,
+        name: item,
+        link: item
+      };
+    });
+  }
+
+  async getRole() {
     // this.personService.getRole().subscribe((c: any) => {
     //   this.role = c;
 
@@ -36,11 +75,8 @@ export class SidebarComponent implements OnInit{
   }
 
 
-  getAllCategory(): any{
-    this.categoryService.getAllCategory().subscribe((c: any) => {
-      this.categories = c;
-    
-     })
+  async getAllCategory() {
+    this.categories = await this.categoryService.getAllCategory().toPromise();
   }
 
 }

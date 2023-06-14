@@ -9,35 +9,27 @@
     </a>
     <div class="sb-sidenav-menu">
         <div class="nav">
-            <div class="sb-sidenav-menu-heading">Core</div>
+            <div class="sb-sidenav-menu-heading">General</div>
             <a class="nav-link" href="index.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Dashboard
+                <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
+                Trang Chủ
             </a>
-            <div class="sb-sidenav-menu-heading">Interface</div>
-            
-            <!-- dropdonw -->
-            <app-dropdown-admin [content]="contentRole" class="margin-space"></app-dropdown-admin>  
-    
-            <!-- dropdonw -->
+            <div class="sb-sidenav-menu-heading">Main</div>
 
-            <button type="button" class="btn btn-outline-primary button1 margin-space" routerLink="/admin/products">
-                Tất Cả Sản Phẩm
-            </button>
+            <app-collapse-sidebar [id]="0" title="Tài Khoản" [collapseSidebar]="acccountCollapse" [hasAll]="true" [hasAdd]="true" icon="fa fa-user"></app-collapse-sidebar>
 
-            <li *ngFor="let item of categories" class="margin-space"> 
-                <app-dropdown-category [category]="item"></app-dropdown-category>
-            </li> 
+            <app-collapse-sidebar-lv2 [id]="0" title="Sản Phẩm" [collapseSidebarL2]="productCollapse" icon="fa fa-shopping-bag"></app-collapse-sidebar-lv2>
 
-            
+            <app-collapse-sidebar [id]="0" title="Đơn Hàng" [collapseSidebar]="orderCollapse" [hasAll]="true" [hasAdd]="true" icon="fa fa-credit-card"></app-collapse-sidebar>
+
             <div class="sb-sidenav-menu-heading">Addons</div>
             <a class="nav-link" href="charts.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                Charts
+                <div class="sb-nav-link-icon"><i class="fa fa-comments"></i></div>
+                Chat
             </a>
             <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Tables
+                <div class="sb-nav-link-icon"><i class="fa fa-users"></i></div>
+                About
             </a>
         </div>
     </div>

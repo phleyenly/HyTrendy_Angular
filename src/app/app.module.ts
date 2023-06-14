@@ -26,7 +26,6 @@ import { DropdownAdminComponent } from './conponent/dropdown-admin/dropdown-admi
 import { FooterAdminComponent } from './conponent/default-layout/admin/footer-admin/footer-admin.component';
 import { HeaderAdminComponent } from './conponent/default-layout/admin/header-admin/header-admin.component';
 import { SidebarComponent } from './conponent/default-layout/admin/sidebar/sidebar.component';
-import { DropdownCategoryComponent } from './conponent/dropdown-category/dropdown-category.component';
 import { AdminProductComponent } from './view/admin/admin-product/admin-product.component';
 import { AdminEditComponent } from './view/admin/admin-edit/admin-edit.component';
 import { FormsModule } from '@angular/forms';
@@ -44,6 +43,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccountComponent } from './view/account/account.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { CollapseSidebarComponent } from './conponent/collapse-sidebar/collapse-sidebar.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CollapseSidebarLv2Component } from './conponent/collapse-sidebar-lv2/collapse-sidebar-lv2.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -108,7 +110,6 @@ const customNotifierOptions: NotifierOptions = {
     FooterAdminComponent,
     HeaderAdminComponent,
     SidebarComponent,
-    DropdownCategoryComponent,
     AdminProductComponent,
     AdminEditComponent,
     SelectMutiModuleComponent,
@@ -119,7 +120,9 @@ const customNotifierOptions: NotifierOptions = {
     OrderComponent,
     CollapseOrderComponent,
     AdminOrderComponent,
-    AccountComponent
+    AccountComponent,
+    CollapseSidebarComponent,
+    CollapseSidebarLv2Component
   ],
   imports: [
     BrowserModule,
@@ -134,6 +137,7 @@ const customNotifierOptions: NotifierOptions = {
     ModalModule.forRoot(),
     PaginationModule.forRoot(),
     NotifierModule.withConfig(customNotifierOptions),
+    CollapseModule.forRoot(),
   ],
   providers: [ 
     {

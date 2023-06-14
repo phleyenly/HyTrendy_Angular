@@ -5,5 +5,4 @@ export interface Category {
     name: string;
     code: string;
     types: Type[];
-    
 }
