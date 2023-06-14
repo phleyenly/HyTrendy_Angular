@@ -4,7 +4,7 @@ import { Observable, Observer } from 'rxjs';
 import { Type } from '../interface/type';
 
 
-const baseUrl = "http://localhost:8080/api/type";
+const baseUrl = "https://hytrendy-production.up.railway.app/api/type";
 
 @Injectable({
   providedIn: 'root'
