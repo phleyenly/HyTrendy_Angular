@@ -9,7 +9,7 @@
         <a class="dropdown-item"  
         (click)="onDropdownClick(category.code , item.code)"
         [ngClass]="active.categoryCode === category.code && active.typeCode === item.code ? 'active'  : ''"
-        >
+         href="/products?categoryCode={{category.code}}&typeCode={{item.code}}" >
         {{ item.name }}
          </a>
       </li>

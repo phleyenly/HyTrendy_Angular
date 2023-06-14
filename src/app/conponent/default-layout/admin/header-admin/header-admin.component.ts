@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderAdminComponent {
 
+  logout() {
+    sessionStorage.clear();
+    window.location.href = '/login'
+  }
+
 }

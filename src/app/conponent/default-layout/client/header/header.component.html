@@ -69,25 +69,42 @@
                         </a>
                     </li>
 
-                    <li class="topauth">
+                    <li>
+                        <div class="h-cart">
+                            <a href="/cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="shop-menu-ttl">Cart</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li *ngIf="session !== null ">
+                        <div class="h-user">
+                            <a href="/account">
+                                <i class="fa fa-user"></i>
+                                <span class="shop-menu-ttl">{{person.name}}</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="topauth" *ngIf="session === null">
                         <a href="auth.html">
                             <i class="fa fa-lock"></i>
                             <span class="shop-menu-ttl">Registration</span>
                         </a>
-                        <a href="auth.html">
+                        <a href="/login">
                             <span class="shop-menu-ttl">Login</span>
                         </a>
                     </li>
 
-                    <li>
-                        <div class="h-cart">
-                            <a href="cart.html">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="shop-menu-ttl">Cart</span>
-                                (<b>0</b>)
-                            </a>
-                        </div>
+                    <li *ngIf="session !== null " (click)="logout()">
+                        <a>
+                            <i class="fa fa-sign-out text-center mr-1"></i> 
+                            <span class="shop-menu-ttl">Logout</span>
+                        </a>
                     </li>
+
+                   
 
                 </ul>
             </div>

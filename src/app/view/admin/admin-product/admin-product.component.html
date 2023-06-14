@@ -5,7 +5,7 @@
       <div class="card-body">
         <div class="row mb-2">
           <div class="col-sm-4">
-            <a class="btn btn-success mb-2"><i class="fa fa-plus me-2"></i> Thêm Sản Phẩm</a>
+            <a class="btn btn-success mb-2" href="/admin/products/add"><i class="fa fa-plus me-2"></i> Thêm Sản Phẩm</a>
           </div>
           <div class="col-sm-8">
             <div class="text-sm-end d-flex flex-row float-end">
@@ -36,7 +36,7 @@
             <tbody>
               <ng-container *ngFor="let item of products; let i = index">
                 <tr (click)="openCollapse(i)" class="product-item">
-                  <td><img class="image-product" alt="" src="{{item.image[0]}}"></td>
+                  <td><img class="image-product" alt="" src="{{item.image !== null ? item.image[0] : ''}}"></td>
                   <td>{{item.name}}</td>
                   <td>{{item.price}}</td>
                   <td>{{item.stock}}</td>
@@ -53,7 +53,7 @@
                   <td colspan="8">
                     <div class="prod-items section-items prod-tb">
                       <div class="prodlist-i">
-                        <a class="list-img-carousel prodlist-i-img"><!-- NO SPACE --><img src="{{item.image[0]}}"
+                        <a class="list-img-carousel prodlist-i-img"><!-- NO SPACE --><img src="{{item.image !== null ? item.image[0] : ''}}"
                             alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
                         <div class="prodlist-i-props2">
                           <h4>{{ item.name }}</h4>

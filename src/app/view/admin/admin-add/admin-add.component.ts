@@ -14,6 +14,7 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class AdminAddComponent {
   product : Product = {id:-1 , name : "", price: 0, stock:0, size: [], tags: "", origin: "",description: "",image: [] , material: "" , categoryId: -1, typeId: -1};
+  img: string = '';
   size: SelectItem[] = [
     {id: 1 , name: "S" },
     {id: 2 , name: "M" },
@@ -88,6 +89,7 @@ export class AdminAddComponent {
   }
 
 createProduct() {
+  this.product.image = this.img.split(",");
   this.productService.createProduct(this.product).subscribe((m: any) => {
     // alert(m.message)
     this.notifier.notify('success', m.message);
