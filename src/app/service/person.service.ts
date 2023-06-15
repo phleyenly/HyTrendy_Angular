@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../interface/person';
 import { ChangePasswordData } from '../interface/change-password-data';
+import * as ConstantVariables from '../../app/app.constants'
 
-const baseUrl = "http://localhost:8080/api";
+const baseUrl = `${ConstantVariables.baseUrl}/api`;
 @Injectable({
   providedIn: 'root'
 })

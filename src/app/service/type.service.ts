@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { Type } from '../interface/type';
+import * as ConstantVariables from '../../app/app.constants'
 
 
-const baseUrl = "http://localhost:8080/api/type";
+const baseUrl = `${ConstantVariables.baseUrl}/api/type`;
 
 @Injectable({
   providedIn: 'root'
