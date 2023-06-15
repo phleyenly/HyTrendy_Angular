@@ -1,0 +1,1 @@
+export const baseUrl = 'https://hytrendy-production.up.railway.app'

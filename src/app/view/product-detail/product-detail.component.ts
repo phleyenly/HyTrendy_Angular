@@ -93,9 +93,18 @@ export class ProductDetailComponent implements OnInit {
     this.cart.id = this.product.id;
     this.cart.quantity = this.quantity;
     this.cartService.createCart(this.cart).subscribe((m: any) => {
-      // alert(m.message)
       this.notifier.notify('success', m.message);
-    })
+    },(err) => {
+      this.notifier.notify('error', 'Bạn Cần Đăng Nhập');
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 3000);
+    }
+    )
+  }
+
+  showWarningPendingFeature() {
+    this.notifier.notify('warning', 'Tính Năng Đang Phát Triển');
   }
 
 }

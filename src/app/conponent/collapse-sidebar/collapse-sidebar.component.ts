@@ -13,6 +13,7 @@ export class CollapseSidebarComponent {
   @Input("id") id: number = 0;
   @Input("title") title: string = '';
   @Input("collapseSidebar") collapseSidebar: CollapseSidebarItem[] = [];
+  @Input("baseLink") baseLink = '';
   isCollapsed = true;
   iconExpand = 'fa fa-angle-down'
 

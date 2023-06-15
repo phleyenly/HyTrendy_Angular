@@ -31,11 +31,11 @@
                     <tr *ngFor="let item of cart; let i = index">
                         <td class="cart-image">
                             <a href="product.html">
-                                <img src="http://placehold.it/61x80" alt="Similique delectus totam">
+                                <img src="{{item.image[0]}}" alt="Similique delectus totam">
                             </a>
                         </td>
                         <td class="cart-ttl">
-                            <a href="product.html">{{item.name}}</a>
+                            <a href="/products/{{item.idProduct}}">{{item.name}}</a>
                             <!-- <p>Color: Red</p> -->
                             <p>Size: {{item.size}}</p>
                         </td>
@@ -65,11 +65,11 @@
             </ul>
             <div class="cart-submit">
                 <div class="cart-coupon">
-                    <input placeholder="your coupon" type="text">
-                    <a class="cart-coupon-btn" href="#"><img src="assets/client/img/ok.png" alt="your coupon"></a>
+                    <input placeholder="your coupon" type="text" >
+                    <a class="cart-coupon-btn" ><img src="assets/client/img/ok.png" alt="your coupon"></a>
                 </div>
                 <a class="cart-submit-btn" (click)="createOrder()">Đặt Hàng</a>
-                <a href="#" class="cart-clear">Clear cart</a>
+                <!-- <a href="#" class="cart-clear">Clear cart</a> -->
             </div>
         </form>
         <!-- Cart Items - end -->

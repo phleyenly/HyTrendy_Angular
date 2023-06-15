@@ -19,7 +19,7 @@ import { AdminOrderComponent } from './view/admin/admin-order/admin-order.compon
 import { AccountComponent } from './view/account/account.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'home', component: HomeComponent},
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDetailComponent },
@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'admin/products/add' , component: AdminAddComponent, canActivate: [AuthGuard]},
   { path: 'admin/account' , component: AdminAccountComponent, canActivate: [AuthGuard]},
   { path: 'admin/account/edit/:id' , component: AdminEditAccountComponent, canActivate: [AuthGuard]},
-  { path: 'admin/account/create' , component: AdminAddAccountComponent, canActivate: [AuthGuard]},
+  { path: 'admin/account/add' , component: AdminAddAccountComponent, canActivate: [AuthGuard]},
   { path: 'admin/order' , component: AdminOrderComponent, canActivate: [AuthGuard]},
 
   { path: '**', component: ErrorComponent }

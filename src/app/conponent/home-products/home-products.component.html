@@ -1,10 +1,10 @@
 <!-- Popular Products -->
 <div class="fr-pop-wrap">
 
-    <h3 class="component-ttl"><span>Popular products</span></h3>
+    <h3 class="component-ttl"><span>Sản Phẩm</span></h3>
 
     <ul class="fr-pop-tabs sections-show">
-        <li><a (click)="getAllProduct()" [ngClass]="active.categoryCode === '' ? 'active' : ''">All Categories</a></li>
+        <li><a (click)="getAllProduct()" [ngClass]="active.categoryCode === '' ? 'active' : ''">Tất cả thể loại</a></li>
         <li *ngFor="let item of categories" class="h-100"> 
             <app-dropdown [category]="item" [active]="active" (onChangeCategoryAndType)="onChangeCategoryAndType($event)"></app-dropdown>
         </li> 

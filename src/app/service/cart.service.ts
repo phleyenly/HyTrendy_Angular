@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cart } from '../interface/cart';
 import { InforCreateCart } from '../interface/infor-create-cart';
+import * as ConstantVariables from '../../app/app.constants'
 
-const baseUrl = "https://hytrendy-production.up.railway.app/api/cart";
+const baseUrl = `${ConstantVariables.baseUrl}/api/cart`;
 
 @Injectable({
   providedIn: 'root'

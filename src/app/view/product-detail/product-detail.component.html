@@ -4,12 +4,12 @@
 
 		<ul class="b-crumbs">
 			<li>
-				<a href="index.html">
+				<a href="/home">
 					Home
 				</a>
 			</li>
 			<li *ngFor="let item of title">
-				<a href="catalog-list.html">
+				<a href="/products">
 					{{item}}
 				</a>
 			</li>
@@ -28,7 +28,7 @@
 					<ul class="prod-slider-car">
 						
 						<li *ngFor="let item of product.image">
-							<a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
+							<a data-fancybox-group="product" class="fancy-img">
 								<img src="{{item}}" alt="">
 							</a>
 						</li>
@@ -53,8 +53,8 @@
 					{{product.description}}
 				</div>
 				<p class="prod-actions">
-					<a href="#" class="prod-favorites"><i class="fa fa-heart"></i> Wishlist</a>
-					<a href="#" class="prod-compare"><i class="fa fa-bar-chart"></i> Compare</a>
+					<a class="prod-favorites mouster-a" (click)="showWarningPendingFeature()"><i class="fa fa-heart"></i> Wishlist</a>
+					<a  class="prod-compare mouster-a" (click)="showWarningPendingFeature()" ><i class="fa fa-bar-chart"></i> Compare</a>
 				</p>
 				<div class="prod-skuwrap">
 					<p class="prod-skuttl">Color</p>

@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from '../interface/category';
+import * as ConstantVariables from '../../app/app.constants'
 
-const baseUrl = "https://hytrendy-production.up.railway.app/api/category";
+const baseUrl = `${ConstantVariables.baseUrl}/api/category`;
 @Injectable({
   providedIn: 'root'
 })

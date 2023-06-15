@@ -11,6 +11,7 @@ export class CollapseSidebarLv2Component {
   @Input("id") id: number = 0;
   @Input("title") title: string = '';
   @Input("collapseSidebarL2") collapseSidebarL2: CollapseSidebarL2Item[] = [];
+  @Input("baseLink") baseLink = '';
   isCollapsed = true;
   iconExpand = 'fa fa-angle-down'
 

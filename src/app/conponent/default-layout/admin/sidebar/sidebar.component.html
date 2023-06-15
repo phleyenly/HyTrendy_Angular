@@ -16,11 +16,11 @@
             </a>
             <div class="sb-sidenav-menu-heading">Main</div>
 
-            <app-collapse-sidebar [id]="0" title="Tài Khoản" [collapseSidebar]="acccountCollapse" [hasAll]="true" [hasAdd]="true" icon="fa fa-user"></app-collapse-sidebar>
+            <app-collapse-sidebar [id]="0" title="Tài Khoản" [collapseSidebar]="acccountCollapse" [hasAll]="true" [hasAdd]="true" icon="fa fa-user" baseLink="/admin/account"></app-collapse-sidebar>
 
-            <app-collapse-sidebar-lv2 [id]="0" title="Sản Phẩm" [collapseSidebarL2]="productCollapse" icon="fa fa-shopping-bag"></app-collapse-sidebar-lv2>
+            <app-collapse-sidebar-lv2 [id]="0" title="Sản Phẩm" [collapseSidebarL2]="productCollapse" icon="fa fa-shopping-bag" baseLink="/admin/products"></app-collapse-sidebar-lv2>
 
-            <app-collapse-sidebar [id]="0" title="Đơn Hàng" [collapseSidebar]="orderCollapse" [hasAll]="true" [hasAdd]="true" icon="fa fa-credit-card"></app-collapse-sidebar>
+            <app-collapse-sidebar [id]="0" title="Đơn Hàng" [collapseSidebar]="orderCollapse" [hasAll]="true" [hasAdd]="true" icon="fa fa-credit-card" baseLink="/admin/order"></app-collapse-sidebar>
 
             <div class="sb-sidenav-menu-heading">Addons</div>
             <a class="nav-link" href="charts.html">

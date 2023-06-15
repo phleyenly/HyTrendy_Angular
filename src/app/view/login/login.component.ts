@@ -44,5 +44,8 @@ export class LoginComponent {
       }
     )
   }
+  featurePending() {
+    this.notifier.notify('warning', 'Tính năng đang đợi Dev phát triển');
+  }
 
 }

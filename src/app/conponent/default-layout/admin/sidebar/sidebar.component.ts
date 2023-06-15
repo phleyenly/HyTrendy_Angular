@@ -37,12 +37,13 @@ export class SidebarComponent implements OnInit {
     this.productCollapse = this.categories.map(item => {
       return {
         id: item.id, 
-        name: item.name, 
+        name: item.name,
+        link: '?category=' + item.code,
         items: item.types.map(it => {
           return {
             id: it.id,
             name: it.name,
-            link: it.code
+            link: '&type=' + it.code
           };
         })
       };
@@ -52,7 +53,7 @@ export class SidebarComponent implements OnInit {
       return {
         id: i,
         name: item,
-        link: item
+        link: '?role=' + item
       };
     });
 
@@ -60,7 +61,7 @@ export class SidebarComponent implements OnInit {
       return {
         id: i,
         name: item,
-        link: item
+        link: '?status=' + item
       };
     });
   }
