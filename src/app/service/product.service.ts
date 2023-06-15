@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../interface/product';
 
-const baseUrl = "https://hytrendy-production.up.railway.app/api/product";
+const baseUrl = "http://localhost:8080/api/product";
 
 @Injectable({
   providedIn: 'root'

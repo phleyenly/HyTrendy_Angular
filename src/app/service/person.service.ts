@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Person } from '../interface/person';
 import { ChangePasswordData } from '../interface/change-password-data';
 
-const baseUrl = "https://hytrendy-production.up.railway.app/api";
+const baseUrl = "http://localhost:8080/api";
 @Injectable({
   providedIn: 'root'
 })

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Cart } from '../interface/cart';
 import { InforCreateCart } from '../interface/infor-create-cart';
 
-const baseUrl = "https://hytrendy-production.up.railway.app/api/cart";
+const baseUrl = "http://localhost:8080/api/cart";
 
 @Injectable({
   providedIn: 'root'
