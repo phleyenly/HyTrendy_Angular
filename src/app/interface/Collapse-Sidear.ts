@@ -7,5 +7,6 @@ export interface CollapseSidebarItem {
 export interface CollapseSidebarL2Item {
     id: number;
     name: string;
+    link: string;
     items: CollapseSidebarItem[]
 }
