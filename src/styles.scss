@@ -97,3 +97,12 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.mouster-a {
+    text-decoration: none;
+}
+
+.mouster-a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

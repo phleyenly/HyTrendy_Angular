@@ -90,10 +90,14 @@ export class AdminAddComponent {
 
 createProduct() {
   this.product.image = this.img.split(",");
-  this.productService.createProduct(this.product).subscribe((m: any) => {
-    // alert(m.message)
-    this.notifier.notify('success', m.message);
-  })
+  this.productService.createProduct(this.product).subscribe(
+    (m: any) => {
+      this.notifier.notify('success', m.message);
+    },
+    (err) => {
+      this.notifier.notify('error', err);
+    }
+  )
 }
 
 }

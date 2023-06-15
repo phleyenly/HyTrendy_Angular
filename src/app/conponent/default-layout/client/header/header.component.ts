@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 import { Category } from 'src/app/interface/category';
 import { Person } from 'src/app/interface/person';
 import { CategoryService } from 'src/app/service/category.service';
@@ -15,7 +16,8 @@ export class HeaderComponent  implements OnInit{
   person: Person = {id:-1, name: '', password:'', phone:'', role:'', username:'',address:''};
   constructor(
     private categoryService: CategoryService,
-    private personService: PersonService
+    private personService: PersonService,
+    private notifier: NotifierService
     ){}
 
   ngOnInit(): void {
@@ -39,5 +41,9 @@ export class HeaderComponent  implements OnInit{
     this.personService.findPersonByUsername().subscribe((p: Person) => {
       this.person = p;
     })
+  }
+
+  showWarningPendingFeature() {
+    this.notifier.notify('warning', 'Tính Năng Đang Phát Triển');
   }
 }

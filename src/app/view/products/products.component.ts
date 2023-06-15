@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { Category } from 'src/app/interface/category';
 import { Product } from 'src/app/interface/product';
@@ -29,7 +30,8 @@ export class ProductsComponent implements OnInit {
     private productService: ProductService ,
     private categoryService: CategoryService,
     private typeService: TypeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notifier: NotifierService
   ){}
 
   async ngOnInit()  {
@@ -87,5 +89,10 @@ export class ProductsComponent implements OnInit {
     this.productService.countProduct().subscribe((m: number) => {
       this.totalItems = m;
     })
+  }
+
+  featurePending() {
+    this.notifier.notify('warning', 'Tính Năng Đang Chờ Dev Học');
+
   }
 }

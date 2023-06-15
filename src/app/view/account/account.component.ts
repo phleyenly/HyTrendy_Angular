@@ -174,4 +174,8 @@ export class AccountComponent implements OnInit {
     window.location.href = '/login'
   }
 
+  showWarningPendingFeature() {
+    this.notifier.notify('warning', 'Tính năng sẽ công bố trong tương lai gần');
+  }
+
 }

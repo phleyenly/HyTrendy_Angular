@@ -19,7 +19,7 @@ import { AdminOrderComponent } from './view/admin/admin-order/admin-order.compon
 import { AccountComponent } from './view/account/account.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'home', component: HomeComponent},
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDetailComponent },

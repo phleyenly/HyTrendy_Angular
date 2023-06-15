@@ -1,7 +1,7 @@
 <body>
-	<section class="py-5 my-5 ">
+	<section>
 		<div class="container w-1170px">
-			<h1 class="mb-5">Account Settings</h1>
+			<h1 class="mb-5">Quản Lí Tài Khoản</h1>
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex ">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
@@ -25,7 +25,7 @@
 							<i class="fa fa-key text-center mr-1"></i> 
 							Thay đổi mật khẩu
 						</a>
-						<a class="nav-link" [ngClass]="check3" id="security-tab" data-toggle="pill"  role="tab" aria-controls="security" aria-selected="false" (click)="isOpen3()" >
+						<a class="nav-link" [ngClass]="check3" id="security-tab" data-toggle="pill"  role="tab" aria-controls="security" aria-selected="false" (click)="isOpen3(); showWarningPendingFeature()" >
 							<i class="fa fa-user text-center mr-1"></i> 
 							Bảo vệ tài khoản
 						</a>
@@ -33,7 +33,7 @@
 							<i class="fa fa-tv text-center mr-1"></i> 
 							Nhật kí mua hàng
 						</a>
-						<a class="nav-link " [ngClass]="check5" id="notification-tab" data-toggle="pill"  role="tab" aria-controls="notification" aria-selected="false" (click)="isOpen5()" >
+						<a class="nav-link " [ngClass]="check5" id="notification-tab" data-toggle="pill"  role="tab" aria-controls="notification" aria-selected="false" (click)="isOpen5() ; showWarningPendingFeature()" >
 							<i class="fa fa-bell text-center mr-1"></i> 
 							Notification
 						</a>
@@ -69,7 +69,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Password</label>
-								  	<input type="password" class="form-control" value="{{person.password}}" readonly>
+								  	<input type="password" class="form-control" value="{{person.password}}" disabled>
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -149,7 +149,7 @@
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
-					<div class="tab-pane fade" [ngClass]="check3" id="security" role="tabpanel" aria-labelledby="security-tab"  >
+					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab"  >
 						<h3 class="mb-4">Security Settings</h3>
 						<div class="row">
 							<div class="col-md-6">
@@ -214,7 +214,7 @@
 						</div>
 						
 					</div>
-					<div class="tab-pane fade" [ngClass]="check5" id="notification" role="tabpanel" aria-labelledby="notification-tab"  > 
+					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab"  > 
 						<h3 class="mb-4">Notification Settings</h3>
 						<div class="form-group">
 							<div class="form-check">

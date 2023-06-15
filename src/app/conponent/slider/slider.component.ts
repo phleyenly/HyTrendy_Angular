@@ -22,22 +22,22 @@ export class SliderComponent implements OnInit{
   imageSlider : string = this.imageSliderArry[0];
   
   textSliderArry: string[] = [
-    "<h3>MEGA SALE -30%</h3>" +
-    "<p>Winter collection for women's. <br>We all have choices for you. Check it out!</p>" +
+    "<h3>ĐẠI TIỆC SALE -30%</h3>" +
+    "<p>Bộ sưu tập mới cho phái đẹp. <br>Tất cả thứ bạn cần đều ở đây. Xem ngay nào!</p>" +
     '<p class="fr-slider-more-wrap">' +
-    '<a class="fr-slider-more" href="#">View collection</a> ' +
+    '<a class="fr-slider-more" href="/products">Xem bộ sưu tập</a> ' +
      '</p>' ,
      
-     "<h3>NEW COLLECTION</h3>" +
-      "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>Aliquam consequuntur dolorem doloribus fuga harum</p>" +
+     "<h3>MẪU MỚI TRENDY</h3>" +
+      "<p>Những sắc màu trendy mang đến sự ấm cúng và bình an cho nàng và chàng.<br>Còn chờ gì nữa mà không nhanh tay sở hữu cho mình những items cực HOT này ngay hôm nay nhỉ?</p>" +
       '<p class="fr-slider-more-wrap">' +
-       '<a class="fr-slider-more" href="#">Shopping now</a>' +
+       '<a class="fr-slider-more" href="/products">Mua sắm ngay</a>' +
         '</p>'   ,
         
-       "<h3>SUMMER TRENDS</h3>" +
-      "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>Aliquam consequuntur dolorem doloribus fuga harum</p>"+
+       "<h3>DẤU ẤN ĐỘC BẢN</h3>" +
+      "<p>Mini Collection “DẤU ẤN ĐỘC BẢN” chính là những mảnh ghép còn lại giúp bạn tô điểm “bức tranh phong cách” với thật nhiều màu sắc theo một cách rất riêng.</p>"+
       '<p class="fr-slider-more-wrap">' +
-      '<a class="fr-slider-more" href="#">Start shopping</a>'  +
+      '<a class="fr-slider-more" href="/products">Khám phá ngay</a>'  +
       '</p>'
 
   ]

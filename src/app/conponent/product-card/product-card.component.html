@@ -1,7 +1,7 @@
 <div class="prodlist-i">
-    <a class="prodlist-i-img" href="product.html"><!-- NO SPACE --><img src="{{product.image[0]}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+    <a class="prodlist-i-img" href="/products/{{product.id}}"><!-- NO SPACE --><img src="{{product.image[0]}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
     <div class="prodlist-i-cont">
-        <h3><a href="product.html">{{product.name}}</a></h3>
+        <h3><a href="/products/{{product.id}}">{{product.name}}</a></h3>
         <div class="prodlist-i-txt">
             {{product.description}}	</div>
         <div class="prodlist-i-skuwrap">
@@ -39,11 +39,11 @@
             <b>{{product.price | currency:'VND'}}</b>
                                     </span>
         </div>
-        <p class="prodlist-i-info">
+        <!-- <p class="prodlist-i-info">
             <a href="#" class="prodlist-i-favorites"><i class="fa fa-heart"></i> Add to wishlist</a>
             <a href="#" class="qview-btn prodlist-i-qview"><i class="fa fa-search"></i> Quick view</a>
             <a class="prodlist-i-compare" href="#"><i class="fa fa-bar-chart"></i> Compare</a>
-        </p>
+        </p> -->
     </div>
 
     <div class="prodlist-i-props-wrap">
