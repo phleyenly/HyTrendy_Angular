@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 import { CollapseSidebarItem, CollapseSidebarL2Item } from 'src/app/interface/Collapse-Sidear';
 import { Category } from 'src/app/interface/category';
 import { Content } from 'src/app/interface/content';
@@ -24,8 +25,10 @@ export class SidebarComponent implements OnInit {
   acccountCollapse: CollapseSidebarItem[] = [];
   orderCollapse: CollapseSidebarItem[] = [];
 
-  constructor(private personService: PersonService,
-    private categoryService: CategoryService) { }
+  constructor(
+    private personService: PersonService,
+    private categoryService: CategoryService,
+    private notifier: NotifierService) { }
 
   async ngOnInit() {
     await this.getRole();
@@ -38,12 +41,12 @@ export class SidebarComponent implements OnInit {
       return {
         id: item.id, 
         name: item.name,
-        link: '?category=' + item.code,
+        link: '?categoryCode=' + item.code,
         items: item.types.map(it => {
           return {
             id: it.id,
             name: it.name,
-            link: '&type=' + it.code
+            link: '&typeCode=' + it.code
           };
         })
       };
@@ -78,6 +81,11 @@ export class SidebarComponent implements OnInit {
 
   async getAllCategory() {
     this.categories = await this.categoryService.getAllCategory().toPromise();
+  }
+
+  featurePending() {
+    this.notifier.notify('warning', 'Tính năng đang đợi phát triển');
+
   }
 
 }
