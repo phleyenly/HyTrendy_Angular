@@ -16,7 +16,7 @@ export class AdminEditAccountComponent  implements OnInit{
   idNumber = parseInt(this.id);
   role: string[] =[];
   roleSelect: SelectItem[]=[];
-
+  roleSelectedId: number | undefined;
 
   constructor( 
     private personService: PersonService,
@@ -24,28 +24,28 @@ export class AdminEditAccountComponent  implements OnInit{
     private notifier: NotifierService) {}
 
   async ngOnInit() {
-    this.getPersonById(this.idNumber);
-  await  this.getRole();
+    await this.getPersonById(this.idNumber);
+    await this.getRole();
 
     this.roleSelect = this.role.map(
       (item, index) => ({
         id: index + 1,
         name: item
-
       })
     );
 
+    this.roleSelectedId = this.roleSelect.find(item => item.name === this.person.role)?.id;
+    
+
     setTimeout(() => {
       console.log(this.role)
-      console.log(this.roleSelect)
+      console.log(this.roleSelectedId)
     }, 5000);
   }
 
   
-  getPersonById(id: number) {
-    this.personService.getPersonById(id).subscribe((p:Person)=>{
-      this.person = p;
-    }) 
+  async getPersonById(id: number) {
+    this.person = await this.personService.getPersonById(id).toPromise();
   }
 
 async  getRole() {

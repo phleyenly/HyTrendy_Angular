@@ -6,7 +6,7 @@
 
 <!-- <app-footer></app-footer> -->
 
-<body class="sb-nav-fixed admin-container" *ngIf="isAdminPage">
+<body class="sb-nav-fixed admin-container" *ngIf="isAdminPage && isRoleAdmin">
     <div id="layoutSidenav" class="d-flex flex-column">
         <div id="layoutSidenav_nav">
             <app-sidebar></app-sidebar>

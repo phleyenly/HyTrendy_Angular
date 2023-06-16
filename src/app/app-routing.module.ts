@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent },
   { path: 'account', component: AccountComponent },
   { path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminHomeComponent, canActivate: [AuthGuard] },
   { path: 'admin/products', component: AdminProductComponent, canActivate: [AuthGuard] },
   { path: 'admin/products/edit/:id', component: AdminEditComponent, canActivate: [AuthGuard] },
   { path: 'admin/products/add' , component: AdminAddComponent, canActivate: [AuthGuard]},

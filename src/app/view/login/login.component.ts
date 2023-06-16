@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
 import { Login } from 'src/app/interface/authentication';
 import { LoginData } from 'src/app/interface/loginData';
+import { Person } from 'src/app/interface/person';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { PersonService } from 'src/app/service/person.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,14 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 })
 export class LoginComponent {
   auth: Login = {username: "", password: ""};
+  person: Person = {id:-1, name: '', password:'', phone:'', role:'', username:'',address:''};
+  passwordConfirm: String = '';
 
   constructor(
     private authentication: AuthenticationService,
-    private notifier: NotifierService) { }
+    private notifier: NotifierService,
+    private personService: PersonService,
+    ) { }
 
 
   login() {
@@ -46,6 +52,28 @@ export class LoginComponent {
   }
   featurePending() {
     this.notifier.notify('warning', 'Tính năng đang đợi Dev phát triển');
+  }
+
+  register() {
+    if(this.person.username!=='' && this.person.password!=='' && this.person.name!=='' && this.passwordConfirm!=='') {
+    if(this.person.password=== this.passwordConfirm) {
+      this.person.role= 'CLIENT';
+      this.personService.createPerson(this.person).subscribe((m: any) => {
+        if(m.message==='Thêm Thành Công') {
+          this.notifier.notify('success', 'Đăng ký thành công');
+        } else {
+          this.notifier.notify('error', m.message);
+        }
+      }, (err) => {
+        this.notifier.notify('error', 'Đăng ký thất bại');
+      }
+      )
+    } else {
+      this.notifier.notify('error', 'Mật khẩu và mật khẩu confirm chưa khớp');
+    }
+    } else {
+      this.notifier.notify('error', 'Vui lòng nhập thông tin');
+    }
   }
 
 }
