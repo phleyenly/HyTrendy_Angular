@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="small mb-1">Password</label>
-                                    <input class="form-control" id="password" type="text" name="password"
+                                    <input class="form-control" id="password" type="password" name="password"
                                         placeholder="Enter your last name" value="{{person.password}}"
                                         [(ngModel)]="person.password">
                                 </div>
@@ -61,7 +61,7 @@
                                 <div class="col-md-6">
                                     <label class="small mb-1">Vai Trò</label>
                                     <app-select-muti-module [multipe]="false" [optionItems]="roleSelect"
-                                        (onChangeSelect)="onchageRoleSelect($event)"></app-select-muti-module>
+                                        (onChangeSelect)="onchageRoleSelect($event)" [selectedValues]="roleSelectedId"></app-select-muti-module>
                                 </div>
                             </div>
                             <!-- Save changes button-->
