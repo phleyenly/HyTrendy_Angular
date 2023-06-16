@@ -1,5 +1,5 @@
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-    <a href="index.html" class="logo logo-light text-center">
+    <a href="/home" class="logo logo-light text-center">
         <span class="logo-lg">
             <img src="https://coderthemes.com/hyper_2/saas/assets/images/logo.png" alt="logo">
         </span>
@@ -10,7 +10,7 @@
     <div class="sb-sidenav-menu">
         <div class="nav">
             <div class="sb-sidenav-menu-heading">General</div>
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/admin/home">
                 <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
                 Trang Chủ
             </a>
@@ -23,12 +23,12 @@
             <app-collapse-sidebar [id]="0" title="Đơn Hàng" [collapseSidebar]="orderCollapse" [hasAll]="true" icon="fa fa-credit-card" baseLink="/admin/order"></app-collapse-sidebar>
 
             <div class="sb-sidenav-menu-heading">Addons</div>
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link mouster-a" (click)="featurePending()"> 
                 <div class="sb-nav-link-icon"><i class="fa fa-comments"></i></div>
                 Chat
             </a>
-            <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fa fa-users"></i></div>
+            <a class="nav-link mouster-a"  (click)="featurePending()">
+                <div class="sb-nav-link-icon" ><i class="fa fa-users"></i></div>
                 About
             </a>
         </div>
