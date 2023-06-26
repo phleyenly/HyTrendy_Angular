@@ -107,7 +107,7 @@ export class CollapseOrderComponent  implements OnInit{
         })
       } else {
         // alert("Đơn hàng này không thể hủy")
-        this.notifier.notify('success', 'Đơn hàng này không thể hủy');
+        this.notifier.notify('warning', 'Đơn hàng này không thể hủy');
 
       }
     }
