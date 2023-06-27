@@ -51,7 +51,7 @@ export class LoginComponent {
     )
   }
   featurePending() {
-    this.notifier.notify('warning', 'Tính năng đang đợi Dev phát triển');
+    this.notifier.notify('warning', 'Tính năng đang phát triển');
   }
 
   register() {

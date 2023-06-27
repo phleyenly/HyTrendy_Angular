@@ -84,7 +84,7 @@ export class SidebarComponent implements OnInit {
   }
 
   featurePending() {
-    this.notifier.notify('warning', 'Tính năng đang đợi phát triển');
+    this.notifier.notify('warning', 'Tính năng đang phát triển');
 
   }
 

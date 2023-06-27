@@ -92,7 +92,7 @@ export class ProductsComponent implements OnInit {
   }
 
   featurePending() {
-    this.notifier.notify('warning', 'Tính Năng Đang Chờ Dev Học');
+    this.notifier.notify('warning', 'Tính Năng Đang Phát Triển');
 
   }
 }
