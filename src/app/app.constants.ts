@@ -1,1 +1,1 @@
-export const baseUrl = 'hytrendy-production-0128.up.railway.app'
+export const baseUrl = 'https://hytrendy-production-0128.up.railway.app'
