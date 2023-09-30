@@ -36,11 +36,6 @@ export class AdminEditAccountComponent  implements OnInit{
 
     this.roleSelectedId = this.roleSelect.find(item => item.name === this.person.role)?.id;
     
-
-    setTimeout(() => {
-      console.log(this.role)
-      console.log(this.roleSelectedId)
-    }, 5000);
   }
 
   
